@@ -134,6 +134,7 @@ const stats = [
 
 export default function Hero() {
   const [activeCard, setActiveCard] = useState(null);
+  const [flippedCard, setFlippedCard] = useState(null);
 
   return (
     <>
@@ -327,8 +328,9 @@ export default function Hero() {
           overflow: hidden;
         }
 
-
-
+        .panels-wrapper {
+          justify-content: center;
+        }
         /* ─── STATS BAR ────────────────────────────────── */
         .stats-wrap {
           padding: 0 3rem 1.5rem;
@@ -440,6 +442,43 @@ export default function Hero() {
           background: linear-gradient(90deg, var(--card-bg) 0%, rgba(9, 23, 12, 0.4) 60%, transparent 100%);
         }
 
+        /* Panel Responsive Logic */
+        .panel-item {
+          width: 180px;
+          margin-left: -60px;
+        }
+        .panel-item:first-child {
+          margin-left: 0;
+        }
+        .panel-item.active {
+          width: 280px;
+        }
+        .panel-bg-container {
+          position: relative;
+          height: 100%;
+          overflow: hidden;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+          clip-path: polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%);
+        }
+        .panel-content {
+          position: absolute;
+          top: 2rem;
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          left: 56px;
+          right: 0px;
+        }
+        .panel-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 16px;
+          z-index: 40;
+        }
+
         @media (max-width: 1200px) {
           .hero {
             height: auto;
@@ -447,15 +486,143 @@ export default function Hero() {
           }
           .hero-main {
             grid-template-columns: 1fr;
-            padding-right: 3rem;
+            padding: 2rem 3rem 0;
             align-items: center;
           }
-          .hero-right { height: 400px; margin-top: 2rem; }
+          .panels-wrapper {
+            justify-content: flex-start;
+          }
+          .panels-container {
+            width: 100%;
+            padding-right: 0;
+            display: flex;
+          }
+          .hero-right { 
+            height: 400px; 
+            margin-top: 3rem; 
+            width: 100%;
+            overflow: hidden;
+          }
+          .panel-item {
+            flex: 1;
+            width: auto;
+            margin-left: -8%;
+          }
+          .panel-item.active {
+            flex: 3;
+            width: auto;
+          }
+          .panel-bg-container {
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+          }
+          .panel-content {
+            left: 15%;
+            top: 1.5rem;
+          }
+          .panel-arrow {
+            display: none;
+          }
           .stats-bar { flex-direction: column; }
           .stats-right { width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
           .stats-left { flex-wrap: wrap; }
-          .stat { min-width: 50%; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+          .stat { min-width: 50%; padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
           .stat:nth-child(even) { border-right: none; }
+        }
+
+        @media (max-width: 768px) {
+          .hero-main {
+            padding: 2rem 1.5rem 0;
+          }
+          .stats-wrap {
+            padding: 0 1.5rem 1.5rem;
+          }
+          .eyebrow {
+            flex-wrap: wrap;
+          }
+          .headline {
+            font-size: 2.8rem;
+          }
+          .desc {
+            font-size: .9rem;
+          }
+          .cta-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+          }
+          .hero-right {
+            height: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            overflow: visible;
+          }
+          .panels-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+          }
+          .panel-item {
+            margin: 0 !important;
+            width: 100% !important;
+            height: 160px;
+            flex: none !important;
+          }
+          .panel-item.flipped {
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            z-index: 100 !important;
+          }
+          .panel-bg-container {
+            clip-path: none !important;
+            border-radius: 12px;
+          }
+          .panel-content {
+            left: 0 !important;
+            right: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+          }
+          .panel-item:not(.active) .panel-title {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+          }
+          .panel-title {
+            font-size: 10px !important;
+            letter-spacing: 0.1em !important;
+          }
+          .panel-icon svg {
+            width: 28px !important;
+            height: 28px !important;
+          }
+          .stat {
+            min-width: 100%;
+            border-right: none;
+          }
+          .tagline-img-wrap {
+            width: 50%;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .headline {
+            font-size: 2.2rem;
+          }
+          .panels-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .panel-item {
+            height: 140px;
+          }
         }
       `}</style>
 
@@ -510,76 +677,70 @@ export default function Hero() {
 
           {/* RIGHT PANELS */}
           <div className="hero-right max-h-[650px]">
-            <div className="relative flex items-center justify-center h-full">
+            <div className="relative flex items-center h-full panels-wrapper">
 
-              <div className="flex h-full items-stretch w-max">
+              <div className="flex h-full items-stretch w-max panels-container">
 
                 {panels.map((panel, idx) => (
                   <div
                     key={panel.id}
-                    onMouseEnter={() => setActiveCard(panel.id)}
-                    onMouseLeave={() => setActiveCard(null)}
-                    className={`
-                                group
-                                relative
-                                h-full
-                                flex-shrink-0
-                                transition-all
-                                duration-700
-                                ease-out
-                                ${activeCard === panel.id ? "z-30" : "z-10"}
-                              `}
-                    style={{
-                      width: activeCard === panel.id ? '280px' : '180px',
-                      marginLeft: idx === 0 ? '0px' : '-60px'
+                    onPointerEnter={(e) => {
+                      if (e.pointerType === 'mouse') setActiveCard(panel.id);
                     }}
+                    onPointerLeave={(e) => {
+                      if (e.pointerType === 'mouse') setActiveCard(null);
+                    }}
+                    onClick={() => {
+                      if (typeof window !== "undefined" && window.innerWidth <= 768) {
+                        setFlippedCard(flippedCard === panel.id ? null : panel.id);
+                      }
+                    }}
+                    className={`group relative h-full flex-shrink-0 transition-all duration-700 ease-out panel-item ${(activeCard === panel.id || flippedCard === panel.id) ? "active z-30" : "z-10"} ${flippedCard === panel.id ? "flipped z-50" : ""}`}
+                    style={{ perspective: "1000px" }}
                   >
-                    <div
-                      className="relative h-full overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
-                      style={{
-                        clipPath:
-                          "polygon(60px 0%, 100% 0%, calc(100% - 60px) 100%, 0% 100%)",
+                    <div 
+                      className="relative h-full w-full transition-transform duration-700" 
+                      style={{ 
+                        transformStyle: "preserve-3d", 
+                        transform: flippedCard === panel.id ? "rotateY(180deg)" : "rotateY(0deg)" 
                       }}
                     >
-                      <img
-                        src={panel.img}
-                        alt={panel.title}
-                        className={`
-                                    absolute
-                                    inset-0
-                                    h-full
-                                    w-full
-                                    object-cover
-                                    transition-all
-                                    duration-700
-                                    ${activeCard === panel.id
-                            ? "scale-110"
-                            : ""
-                          }
-                                  `}
-                      />
+                      {/* FRONT OF CARD */}
+                      <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
+                        <div className="panel-bg-container">
+                          <img
+                            src={panel.img}
+                            alt={panel.title}
+                            className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${activeCard === panel.id ? "scale-110" : ""}`}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/10" />
+                          <div className="panel-content">
+                            <div className="mb-4 text-white [&>svg]:w-7 [&>svg]:h-7 panel-icon">
+                              {panel.icon}
+                            </div>
+                            <div className="whitespace-pre-line text-[11px] font-semibold tracking-[0.15em] leading-relaxed text-white uppercase panel-title">
+                              {panel.title}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/10" />
-
-                      <div
-                        className="absolute top-8 z-20 flex flex-col items-center text-center"
-                        style={{ left: '56px', right: '0px' }}
+                      {/* BACK OF CARD (Complete Img) */}
+                      <div 
+                        className="absolute inset-0" 
+                        style={{ 
+                          backfaceVisibility: "hidden", 
+                          transform: "rotateY(180deg)"
+                        }}
                       >
-                        <div className="mb-4 text-white [&>svg]:w-7 [&>svg]:h-7">
-                          {panel.icon}
-                        </div>
-
-                        <div className="whitespace-pre-line text-[11px] font-semibold tracking-[0.15em] leading-relaxed text-white uppercase">
-                          {panel.title}
-                        </div>
+                         <div className="relative h-full w-full overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-black">
+                           <img src={panel.img} alt={panel.title} className="absolute inset-0 h-full w-full object-cover" />
+                         </div>
                       </div>
                     </div>
 
                     {idx < panels.length - 1 && (
-                      <div
-                        className="absolute top-1/2 z-40 -translate-y-1/2"
-                        style={{ right: '16px' }}
-                      >
+                      <div className="panel-arrow">
                         <div className="flex h-7 w-7 items-center justify-center rounded-full border border-[#7bb528] bg-[#08130A] text-[#7bb528] shadow-lg">
                           →
                         </div>
