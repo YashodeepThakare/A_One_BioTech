@@ -141,15 +141,15 @@ export default function BioTechLab() {
           <h2 className="biolab-title">
             <div style={{ overflow: "hidden", paddingBottom: "5px" }}>
               <motion.div variants={textLineVariants} className="biolab-title-line1">
-                Where Precision Meets <span style={{ color: "#00a651" }}>Plant Science</span>
+                Where Precision Meets <span style={{ color: "#00a651" }}>Plant <span style={{ whiteSpace: "nowrap" }}>Science
                 <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
-                </svg>
+                </svg></span></span>
               </motion.div>
             </div>
           </h2>
 
-          <motion.div variants={textLineVariants} className="biolab-desc" style={{ display: "flex", flexDirection: "column", gap: "0.5rem", fontSize: "0.95rem", lineHeight: "1.5" }}>
+          <motion.div variants={textLineVariants} className="biolab-desc" style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
             <p style={{ margin: 0 }}>Our expertise in <strong>Plant Tissue Culture Techniques</strong> helps us grow genetically altered plants with similar specifications in required quality and quantities.</p>
             <p style={{ margin: 0 }}>At A-One Biotech, our state-of-the-art <strong>3,000 sq. ft. Plant Tissue Culture Laboratory</strong> serves as the foundation of our biotechnology operations. Designed with advanced clean-room facilities and controlled growing environments, the laboratory ensures the highest standards of sterility, quality, and consistency throughout the propagation process.</p>
             <p style={{ margin: 0 }}>Using modern tissue culture techniques, we develop disease-free, genetically uniform, and high-performance plantlets from carefully selected mother plants. Every stage—from culture initiation and multiplication to rooting and acclimatization—is monitored under strict quality protocols to maintain genetic integrity and plant health.</p>
@@ -340,13 +340,11 @@ export default function BioTechLab() {
         }
 
         .biolab-desc {
-          font-size: 1.15rem;
+          font-size: 0.95rem;
           color: #555;
-          line-height: 1.6;
+          line-height: 1.5;
           margin-bottom: 2.5rem;
           max-width: 650px;
-        }
-
         }
 
         /* ── RIGHT HONEYCOMB GRID ── */
@@ -527,11 +525,11 @@ export default function BioTechLab() {
 
         @media (max-width: 1200px) {
           .biolab-section { padding: 3rem 2.5rem; }
-          .biolab-top { display: flex; flex-direction: column; gap: 2rem; }
+          .biolab-top { display: flex; flex-direction: column; gap: 2.5rem; }
           .biolab-left { margin-left: 0; max-width: 100%; align-items: flex-start; text-align: left; }
           .biolab-desc { text-align: left; margin: 0; }
           .biolab-title-line1, .biolab-title-line2 { text-align: left; display: block; }
-          .biolab-stats { justify-content: center; gap: 3rem; padding-right: 0; }
+          .biolab-stats { justify-content: center; gap: 2rem; padding-right: 0; }
           .biolab-right { margin-top: 1rem; }
           .hex { width: 150px; height: 173px; }
           .hex-row + .hex-row { margin-top: -31px; }
@@ -540,28 +538,37 @@ export default function BioTechLab() {
         @media (max-width: 992px) {
           .biolab-top { gap: 2rem; }
           .biolab-left { padding: 0; align-items: center; text-align: center; }
-          .biolab-desc { margin: 0 0 1.5rem 0; text-align: left; width: 100%; }
+          .biolab-desc { margin: 0 0 1.5rem 0; text-align: center; max-width: 700px; }
           .biolab-title { text-align: center; width: 100%; }
           .biolab-title-line1, .biolab-title-line2 { display: block; text-align: center; }
           .biolab-right { width: 100%; margin-top: 1rem; justify-content: center; }
-          .hex { width: 160px; height: 184px; }
-          .hex-row + .hex-row { margin-top: -34px; }
+          .hex { width: 140px; height: 162px; }
+          .hex-row + .hex-row { margin-top: -30px; }
+          .hex-row { gap: 10px; }
         }
 
         @media (max-width: 768px) {
           .biolab-section { padding: 2.5rem 1.5rem; }
-          .biolab-stats { flex-direction: column; align-items: center; gap: 1.5rem; }
-          .hex { width: 130px; height: 150px; }
+          .biolab-stats { gap: 1.5rem; }
+          .hex { width: 120px; height: 139px; }
           .hex-row + .hex-row { margin-top: -27px; }
-          .hex-row { gap: 10px; }
-        }
-        
-        @media (max-width: 480px) {
-          .biolab-section { padding: 2rem 1rem; }
-          .biolab-title { font-size: 2.2rem; }
-          .hex { width: 110px; height: 127px; }
-          .hex-row + .hex-row { margin-top: -24px; }
           .hex-row { gap: 8px; }
+        }
+
+        @media (max-width: 576px) {
+          .biolab-section { padding: 2.5rem 1rem; }
+          .biolab-title { font-size: clamp(2rem, 8vw, 2.8rem); }
+          .biolab-desc { font-size: 0.9rem; }
+          .hex { width: 100px; height: 115px; }
+          .hex-row + .hex-row { margin-top: -23px; }
+          .hex-row { gap: 6px; }
+          .biolab-stat-card { width: 100%; max-width: 280px; }
+        }
+
+        @media (max-width: 400px) {
+          .hex { width: 86px; height: 99px; }
+          .hex-row + .hex-row { margin-top: -21px; }
+          .hex-row { gap: 4px; }
         }
       `}} />
     </section>

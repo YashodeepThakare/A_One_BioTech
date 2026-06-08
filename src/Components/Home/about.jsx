@@ -5,153 +5,145 @@ import { motion, useInView } from "framer-motion";
 
 /* ── milestone data ─────────────────────────────────── */
 const milestones = [
-    {
-        year: "2003",
-        title: "The Beginning",
-        desc: "Founded by Mr. Dilip Jadhav with a vision to revolutionize agriculture through tissue culture.",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C9 6 6 9 6 13a6 6 0 0 0 12 0c0-4-3-7-6-11Zm0 15a3 3 0 0 1-3-3c0-1.5 1-3 3-5.5 2 2.5 3 4 3 5.5a3 3 0 0 1-3 3Z" />
-            </svg>
-        ),
-    },
-    {
-        year: "2005",
-        title: "Pvt. Ltd. Company",
-        desc: "Converted into a Private Limited Company and expanded operations on a larger scale.",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L4 7v14h16V7L12 2ZM9 18H7v-2h2v2Zm0-4H7v-2h2v2Zm0-4H7V8h2v2Zm4 8h-2v-2h2v2Zm0-4h-2v-2h2v2Zm0-4h-2V8h2v2Zm4 8h-2v-2h2v2Zm0-4h-2v-2h2v2Zm0-4h-2V8h2v2Z" />
-            </svg>
-        ),
-    },
-    {
-        year: "2010",
-        title: "R&D Expansion",
-        desc: "Invested in advanced research and developed expertise in tissue culture and plant biotechnology.",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2v6h2l-1.5 3H16l-4 7v-5h-2l2-5H10L13 2ZM7 20h10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2Z" />
-            </svg>
-        ),
-    },
-    {
-        year: "2015",
-        title: "Mass Propagation",
-        desc: "Scaled up production with state-of-the-art infrastructure to meet growing industry demands.",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66S8 17 13 14.5V18l4-6c1.88-3 2-7 0-10-1 2-3 3-5 3 1-1 2-3 2-5-1 2-4 4-7 5 3-1 5 0 7 2 0-1-.5-2-1-3 1 1 2 2 2 4 0 1-1 2-2 2-.5 0-1-.5-1-1h2c0-1-.5-2-1-3l-1 2c-1 0-1 0-2-1 1 0 2 0 3-1Z" />
-            </svg>
-        ),
-    },
-    {
-        year: "Today",
-        title: "Trusted Partner",
-        desc: "Delivering high-quality plants across India with trust and excellence.",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93Zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39Z" />
-            </svg>
-        ),
-    },
+  {
+    year: "2003",
+    title: "The Beginning",
+    desc: "Founded by Mr. Dilip Jadhav with a vision to revolutionize agriculture through tissue culture.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C9 6 6 9 6 13a6 6 0 0 0 12 0c0-4-3-7-6-11Zm0 15a3 3 0 0 1-3-3c0-1.5 1-3 3-5.5 2 2.5 3 4 3 5.5a3 3 0 0 1-3 3Z" />
+      </svg>
+    ),
+  },
+  {
+    year: "2005",
+    title: "Pvt. Ltd. Company",
+    desc: "Converted into a Private Limited Company and expanded operations on a larger scale.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L4 7v14h16V7L12 2ZM9 18H7v-2h2v2Zm0-4H7v-2h2v2Zm0-4H7V8h2v2Zm4 8h-2v-2h2v2Zm0-4h-2v-2h2v2Zm0-4h-2V8h2v2Zm4 8h-2v-2h2v2Zm0-4h-2v-2h2v2Zm0-4h-2V8h2v2Z" />
+      </svg>
+    ),
+  },
+  {
+    year: "2010",
+    title: "R&D Expansion",
+    desc: "Invested in advanced research and developed expertise in tissue culture and plant biotechnology.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13 2v6h2l-1.5 3H16l-4 7v-5h-2l2-5H10L13 2ZM7 20h10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2Z" />
+      </svg>
+    ),
+  },
+  {
+    year: "2015",
+    title: "Mass Propagation",
+    desc: "Scaled up production with state-of-the-art infrastructure to meet growing industry demands.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66S8 17 13 14.5V18l4-6c1.88-3 2-7 0-10-1 2-3 3-5 3 1-1 2-3 2-5-1 2-4 4-7 5 3-1 5 0 7 2 0-1-.5-2-1-3 1 1 2 2 2 4 0 1-1 2-2 2-.5 0-1-.5-1-1h2c0-1-.5-2-1-3l-1 2c-1 0-1 0-2-1 1 0 2 0 3-1Z" />
+      </svg>
+    ),
+  },
+  {
+    year: "Today",
+    title: "Trusted Partner",
+    desc: "Delivering high-quality plants across India with trust and excellence.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93Zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39Z" />
+      </svg>
+    ),
+  },
 ];
 
 /* ── animation variants ─────────────────────────────── */
 const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
-    }),
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 const dotPop = {
-    hidden: { opacity: 0, scale: 0, rotate: -90 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        scale: 1,
-        rotate: 0,
-        transition: {
-            duration: 0.6,
-            delay: 0.3 + i * 0.15,
-            ease: [0.34, 1.56, 0.64, 1], // springy overshoot
-        },
-    }),
-};
-
-const lineGrow = {
-    hidden: { scaleX: 0 },
-    visible: {
-        scaleX: 1,
-        transition: { duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
+  hidden: { opacity: 0, scale: 0, rotate: -90 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 0.6,
+      delay: 0.3 + i * 0.15,
+      ease: [0.34, 1.56, 0.64, 1], // springy overshoot
     },
+  }),
 };
 
 const cardSlideUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.5,
-            delay: 0.5 + i * 0.15,
-            ease: [0.22, 1, 0.36, 1],
-        },
-    }),
+  hidden: { opacity: 0, y: 20 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.5 + i * 0.15,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
 };
 
 /* ── MilestoneCard ──────────────────────────────────── */
 function MilestoneCard({ milestone, index }) {
-    const ref = useRef(null);
-    const inView = useInView(ref, { once: true, margin: "-40px" });
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
 
-    return (
-        <div ref={ref} className="about-milestone-card">
-            {/* animated dot */}
-            <motion.div
-                className="about-dot-wrap"
-                variants={dotPop}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-                custom={index}
-            >
-                <div className={`about-dot ${milestone.year === "Today" ? "about-dot--active" : ""}`}>
-                    <span className="about-dot-icon">{milestone.icon}</span>
-                </div>
-            </motion.div>
-
-            {/* year badge + card body slide up */}
-            <motion.div
-                className="about-card-content"
-                variants={cardSlideUp}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-                custom={index}
-            >
-                <div className={`about-year-badge ${milestone.year === "Today" ? "about-year-badge--active" : ""}`}>
-                    {milestone.year}
-                </div>
-                <div className="about-card-body">
-                    <h4 className="about-card-title">{milestone.title}</h4>
-                    <p className="about-card-desc">{milestone.desc}</p>
-                </div>
-            </motion.div>
+  return (
+    <div ref={ref} className="about-milestone-card">
+      {/* animated dot */}
+      <motion.div
+        className="about-dot-wrap"
+        variants={dotPop}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        custom={index}
+      >
+        <div className={`about-dot ${milestone.year === "Today" ? "about-dot--active" : ""}`}>
+          <span className="about-dot-icon">{milestone.icon}</span>
         </div>
-    );
+      </motion.div>
+
+      {/* year badge + card body slide up */}
+      <motion.div
+        className="about-card-content"
+        variants={cardSlideUp}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        custom={index}
+      >
+        <div className={`about-year-badge ${milestone.year === "Today" ? "about-year-badge--active" : ""}`}>
+          {milestone.year}
+        </div>
+        <div className="about-card-body">
+          <h4 className="about-card-title">{milestone.title}</h4>
+          <p className="about-card-desc">{milestone.desc}</p>
+        </div>
+      </motion.div>
+    </div>
+  );
 }
 
 /* ── About Component ────────────────────────────────── */
 export default function About() {
-    const sectionRef = useRef(null);
-    const inView = useInView(sectionRef, { once: true, margin: "-100px" });
-    const timelineRef = useRef(null);
-    const timelineInView = useInView(timelineRef, { once: true, margin: "-40px" });
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const timelineRef = useRef(null);
+  const timelineInView = useInView(timelineRef, { once: true, margin: "-40px" });
 
-    return (
-        <>
-            <style>{`
+  return (
+    <>
+      <style>{`
         /* ─── ABOUT SECTION ──────────────────────────────── */
         .about {
           position: relative;
@@ -406,13 +398,13 @@ export default function About() {
 
         .about-feature-title {
           color: #000000;
-          font-size: .9rem;
+          font-size: 1.05rem;
           font-weight: 700;
           margin-bottom: .4rem;
         }
         .about-feature-desc {
           color: #111827;
-          font-size: .78rem;
+          font-size: .85rem;
           font-weight: 500;
           line-height: 1.55;
         }
@@ -442,7 +434,7 @@ export default function About() {
           gap: 0;
         }
 
-        /* the running baseline — animated via motion div */
+        /* the running baseline */
         .about-timeline-line {
           position: absolute;
           top: 26px;
@@ -453,6 +445,11 @@ export default function About() {
           transform-origin: left center;
           border-radius: 2px;
           z-index: 1;
+          transform: scaleX(0);
+          transition: transform 1.2s cubic-bezier(.22, 1, .36, 1) 0.2s;
+        }
+        .about-timeline-line--active {
+          transform: scaleX(1);
         }
         .about-timeline-line::after {
           content: '';
@@ -567,7 +564,7 @@ export default function About() {
 
         .about-card-title {
           color: #111827;
-          font-size: .82rem;
+          font-size: .95rem;
           font-weight: 600;
           margin-bottom: .35rem;
           transition: color .3s ease;
@@ -577,7 +574,7 @@ export default function About() {
         }
         .about-card-desc {
           color: #6b7280;
-          font-size: .72rem;
+          font-size: .82rem;
           line-height: 1.55;
         }
 
@@ -592,7 +589,7 @@ export default function About() {
             align-items: center; 
             text-align: center; 
           }
-          .about-desc { text-align: justify; max-width: 650px; }
+          .about-desc { text-align: center; max-width: 650px; }
           .about-divider { margin-left: auto; margin-right: auto; transform-origin: center !important; }
           .about-founder-row { 
             flex-direction: column; 
@@ -610,211 +607,258 @@ export default function About() {
         }
 
         @media (max-width: 900px) {
-          .about-milestone-card { flex: 0 0 calc(50% - 1.5rem); }
+          .about-timeline {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 2.5rem;
+            padding-left: 0;
+            flex-wrap: nowrap;
+          }
+          .about-timeline-line {
+            display: block;
+            width: 3px;
+            height: auto;
+            left: 26px;
+            margin-left: -1.5px;
+            top: 26px;
+            bottom: 26px;
+            right: auto;
+            background: linear-gradient(180deg, #F51521, #00A651, #8BD8B0, #00A651, #F51521);
+            transform-origin: top center;
+            transform: scaleY(0);
+            transition: transform 1.2s cubic-bezier(.22, 1, .36, 1) 0.2s;
+          }
+          .about-timeline-line--active {
+            transform: scaleY(1);
+          }
+          .about-timeline-line::after {
+            background: linear-gradient(180deg, rgba(245,21,33,.15), rgba(0,166,81,.2), rgba(139,216,176,.2), rgba(0,166,81,.2), rgba(245,21,33,.15));
+            inset: 0 -3px;
+          }
+          .about-milestone-card {
+            flex-direction: row;
+            align-items: flex-start;
+            text-align: left;
+            padding: 0;
+            gap: 1.5rem;
+            flex: 0 0 auto;
+            width: 100%;
+          }
+          .about-card-content {
+            align-items: flex-start;
+          }
+          .about-card-body {
+            max-width: 100%;
+          }
+          .about-dot-wrap {
+            margin-bottom: 0;
+            flex-shrink: 0;
+          }
+          .about-card-title { font-size: 1.05rem; }
+          .about-card-desc { font-size: .9rem; }
         }
 
         @media (max-width: 640px) {
           .about { padding: 3.5rem 1.5rem; }
           .about-heading { font-size: clamp(2rem, 8vw, 2.4rem); margin-bottom: 1.2rem; }
+          .about-desc { font-size: 0.95rem; }
           .about-feature-grid { grid-template-columns: 1fr; gap: 1rem; }
           .about-visual-card { padding: 1.5rem; border-radius: 12px; }
           .about-founder-row { flex-direction: column; align-items: center; gap: 1.2rem; }
           .about-readmore { align-self: center; margin-top: 0.5rem; }
-          .about-milestone-card { flex: 0 0 100%; }
           .about-decor-tl { width: 35vw; max-width: 120px; transform: translateX(0); opacity: 1; }
+          .about-timeline-line { left: 26px; }
+          .about-milestone-card { gap: 1.2rem; }
         }
       `}</style>
 
 
-            <section className="about" id="about" ref={sectionRef}>
-                <div className="about-glow-1" />
-                <div className="about-glow-2" />
-                <img src="/sideImgOfeco.png" alt="" className="about-decor-tl" />
+      <section className="about" id="about" ref={sectionRef}>
+        <div className="about-glow-1" />
+        <div className="about-glow-2" />
+        <img src="/sideImgOfeco.png" alt="" className="about-decor-tl" />
 
-                {/* ── TOP: intro + features ─── */}
-                <div className="about-top">
-                    {/* LEFT: copy */}
-                    <motion.div
-                        className="about-left"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        custom={0}
-                    >
-                        <div className="about-eyebrow">
-                            <svg className="about-eyebrow-leaf" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
-                            </svg>
-                            <span>ABOUT</span>
-                        </div>
+        {/* ── TOP: intro + features ─── */}
+        <div className="about-top">
+          {/* LEFT: copy */}
+          <motion.div
+            className="about-left"
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            custom={0}
+          >
+            <div className="about-eyebrow">
+              <svg className="about-eyebrow-leaf" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
+              </svg>
+              <span>ABOUT</span>
+            </div>
 
-                        <h2 className="about-heading">
-                            Growing Innovation
-                            <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
-                            </svg>
-                            <br />Through{" "}
-                            <span className="green">Biotechnology</span>
-                        </h2>
+            <h2 className="about-heading">
+              Growing Innovation
+              <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
+              </svg>
+              <br />Through{" "}
+              <span className="green">Biotechnology</span>
+            </h2>
 
-                        <motion.div
-                            className="about-divider"
-                            initial={{ scaleX: 0 }}
-                            animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                            style={{ transformOrigin: "left" }}
-                        />
+            <motion.div
+              className="about-divider"
+              initial={{ scaleX: 0 }}
+              animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformOrigin: "left" }}
+            />
 
-                        <p className="about-desc">
-                            Founded in 2003 by Mr. Dilip Jadhav, A-One Biotech began with a
-                            vision to transform agriculture through advanced plant tissue
-                            culture and research-driven propagation.
-                        </p>
-                        <p className="about-desc" style={{ marginTop: "1rem" }}>
-                            Over two decades, we have evolved into a trusted partner for
-                            farmers, industries, landscape consultants and corporate green
-                            infrastructure projects.
-                        </p>
-                        <p className="about-desc" style={{ marginTop: "1rem" }}>
-                            Backed by continuous R&D, modern infrastructure and a passionate
-                            team, we are committed to delivering high-quality, genetically
-                            consistent plants that build a greener tomorrow.
-                        </p>
+            <p className="about-desc">
+              Founded in 2003 by Mr. Dilip Jadhav, A-One Biotech began with a
+              vision to transform agriculture through advanced plant tissue
+              culture and research-driven propagation.
+            </p>
+            <p className="about-desc" style={{ marginTop: "1rem" }}>
+              Over two decades, we have evolved into a trusted partner for
+              farmers, industries, landscape consultants and corporate green
+              infrastructure projects.
+            </p>
+            <p className="about-desc" style={{ marginTop: "1rem" }}>
+              Backed by continuous R&D, modern infrastructure and a passionate
+              team, we are committed to delivering high-quality, genetically
+              consistent plants that build a greener tomorrow.
+            </p>
 
-                        <motion.div
-                            className="about-founder-row"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                            transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            <div className="about-founder">
-                                <div className="about-founder-avatar">DJ</div>
-                                <div className="about-founder-info">
-                                    <div className="about-founder-name">Mr. Dilip Jadhav</div>
-                                    <div className="about-founder-role">
-                                        Founder & Managing Director
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button className="about-readmore">
-                                Read More
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </button>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* RIGHT: feature cards */}
-                    <motion.div
-                        className="about-right"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        custom={1}
-                    >
-                        <div className="about-visual-card">
-                            <div className="about-feature-grid">
-                                {[
-                                    {
-                                        title: "Advanced R&D",
-                                        desc: "Continuous research in tissue culture and plant biotechnology.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" />
-                                                <path d="M8.5 2h7" />
-                                                <path d="M7 16h10" />
-                                            </svg>
-                                        ),
-                                    },
-                                    {
-                                        title: "Modern Infrastructure",
-                                        desc: "State-of-the-art facilities for mass propagation at scale.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M3 21h18" />
-                                                <path d="M5 21V7l7-4 7 4v14" />
-                                                <path d="M9 21v-4h6v4" />
-                                                <path d="M9 10h1" /><path d="M14 10h1" />
-                                                <path d="M9 14h1" /><path d="M14 14h1" />
-                                            </svg>
-                                        ),
-                                    },
-                                    {
-                                        title: "Genetic Consistency",
-                                        desc: "High-quality, genetically uniform plants for every client.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M2 15c6.667-6 13.333 0 20-6" />
-                                                <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" />
-                                                <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993" />
-                                                <path d="M17 6l-2.5-2.5" /><path d="M14 8l-2.5-2.5" />
-                                                <path d="M7 18l2.5 2.5" /><path d="M10 16l2.5 2.5" />
-                                            </svg>
-                                        ),
-                                    },
-                                    {
-                                        title: "Trusted Partner",
-                                        desc: "Serving farmers, industries, and corporate green projects across India.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M11.562 3.266a.5.5 0 0 1 .876 0L14.39 7.91a.5.5 0 0 0 .382.275l5.074.66a.5.5 0 0 1 .279.86l-3.714 3.508a.5.5 0 0 0-.146.447l.91 5.022a.5.5 0 0 1-.73.53l-4.488-2.39a.5.5 0 0 0-.474 0l-4.488 2.39a.5.5 0 0 1-.73-.53l.91-5.022a.5.5 0 0 0-.146-.447L3.315 9.705a.5.5 0 0 1 .279-.86l5.074-.66a.5.5 0 0 0 .382-.275l1.952-4.644Z" />
-                                            </svg>
-                                        ),
-                                    },
-                                ].map((feat, i) => (
-                                    <motion.div
-                                        key={feat.title}
-                                        className="about-feature"
-                                        variants={fadeUp}
-                                        initial="hidden"
-                                        animate={inView ? "visible" : "hidden"}
-                                        custom={i + 2}
-                                    >
-                                        <div className="about-feature-icon">{feat.icon}</div>
-                                        <div className="about-feature-title">{feat.title}</div>
-                                        <div className="about-feature-desc">{feat.desc}</div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
+            <motion.div
+              className="about-founder-row"
+              initial={{ opacity: 0, x: -20 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="about-founder">
+                <div className="about-founder-avatar">DJ</div>
+                <div className="about-founder-info">
+                  <div className="about-founder-name">Mr. Dilip Jadhav</div>
+                  <div className="about-founder-role">
+                    Founder & Managing Director
+                  </div>
                 </div>
+              </div>
 
-                {/* ── BOTTOM: timeline ─── */}
-                <div className="about-timeline-section" ref={timelineRef}>
-                    <motion.div
-                        className="about-timeline-header"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate={timelineInView ? "visible" : "hidden"}
-                        custom={0}
-                    >
-                        <h3 className="about-timeline-title">
-                            Two Decades of Growth & Innovation
-                        </h3>
-                    </motion.div>
+              <button className="about-readmore">
+                Read More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </motion.div>
+          </motion.div>
 
-                    <div className="about-timeline">
-                        {/* animated baseline */}
-                        <motion.div
-                            className="about-timeline-line"
-                            variants={lineGrow}
-                            initial="hidden"
-                            animate={timelineInView ? "visible" : "hidden"}
-                        />
+          {/* RIGHT: feature cards */}
+          <motion.div
+            className="about-right"
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            custom={1}
+          >
+            <div className="about-visual-card">
+              <div className="about-feature-grid">
+                {[
+                  {
+                    title: "Advanced R&D",
+                    desc: "Continuous research in tissue culture and plant biotechnology.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" />
+                        <path d="M8.5 2h7" />
+                        <path d="M7 16h10" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "Modern Infrastructure",
+                    desc: "State-of-the-art facilities for mass propagation at scale.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3 21h18" />
+                        <path d="M5 21V7l7-4 7 4v14" />
+                        <path d="M9 21v-4h6v4" />
+                        <path d="M9 10h1" /><path d="M14 10h1" />
+                        <path d="M9 14h1" /><path d="M14 14h1" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "Genetic Consistency",
+                    desc: "High-quality, genetically uniform plants for every client.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M2 15c6.667-6 13.333 0 20-6" />
+                        <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" />
+                        <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993" />
+                        <path d="M17 6l-2.5-2.5" /><path d="M14 8l-2.5-2.5" />
+                        <path d="M7 18l2.5 2.5" /><path d="M10 16l2.5 2.5" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "Trusted Partner",
+                    desc: "Serving farmers, industries, and corporate green projects across India.",
+                    icon: (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M11.562 3.266a.5.5 0 0 1 .876 0L14.39 7.91a.5.5 0 0 0 .382.275l5.074.66a.5.5 0 0 1 .279.86l-3.714 3.508a.5.5 0 0 0-.146.447l.91 5.022a.5.5 0 0 1-.73.53l-4.488-2.39a.5.5 0 0 0-.474 0l-4.488 2.39a.5.5 0 0 1-.73-.53l.91-5.022a.5.5 0 0 0-.146-.447L3.315 9.705a.5.5 0 0 1 .279-.86l5.074-.66a.5.5 0 0 0 .382-.275l1.952-4.644Z" />
+                      </svg>
+                    ),
+                  },
+                ].map((feat, i) => (
+                  <motion.div
+                    key={feat.title}
+                    className="about-feature"
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate={inView ? "visible" : "hidden"}
+                    custom={i + 2}
+                  >
+                    <div className="about-feature-icon">{feat.icon}</div>
+                    <div className="about-feature-title">{feat.title}</div>
+                    <div className="about-feature-desc">{feat.desc}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
-                        {milestones.map((m, i) => (
-                            <MilestoneCard
-                                key={m.year}
-                                milestone={m}
-                                index={i}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </section>
-        </>
-    );
+        {/* ── BOTTOM: timeline ─── */}
+        <div className="about-timeline-section" ref={timelineRef}>
+          <motion.div
+            className="about-timeline-header"
+            variants={fadeUp}
+            initial="hidden"
+            animate={timelineInView ? "visible" : "hidden"}
+            custom={0}
+          >
+            <h3 className="about-timeline-title">
+              Two Decades of Growth & Innovation
+            </h3>
+          </motion.div>
+
+          <div className="about-timeline">
+            {/* animated baseline */}
+            <div
+              className={`about-timeline-line ${timelineInView ? "about-timeline-line--active" : ""}`}
+            />
+
+            {milestones.map((m, i) => (
+              <MilestoneCard
+                key={m.year}
+                milestone={m}
+                index={i}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

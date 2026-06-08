@@ -222,18 +222,7 @@ export default function Ecosystem() {
           overflow: hidden;
         }
 
-        /* ── decorative leaf top-right ── */
-        .eco-decor-tr {
-          position: absolute;
-          top: 0;
-          right: 0;
-          transform: translateX(20%);
-          width: 35vw;
-          max-width: 400px;
-          height: auto;
-          pointer-events: none;
-          z-index: 0;
-        }
+
 
         /* ── MAIN 2-COLUMN GRID ────────────────────────── */
         .eco-layout {
@@ -618,20 +607,19 @@ export default function Ecosystem() {
         }
 
         /* ─── RESPONSIVE ───────────────────────────────── */
-        @media (max-width: 1100px) {
-          .eco { padding: 3.5rem 3rem; }
-          .eco-layout { grid-template-columns: 1fr 1fr; gap: 2rem; }
-          .eco-right { margin-left: -1rem; margin-top: 0; }
-          .eco-feats { flex-wrap: wrap; gap: 1.2rem; }
-          .eco-feat { flex: 0 0 calc(50% - 0.6rem); }
+        @media (max-width: 1200px) {
+          .eco { padding: 3rem 4rem; }
+          .eco-layout { gap: 1.5rem; }
+          .eco-right { margin-left: -1.5rem; margin-top: 0; }
           .eco-pipeline-grid {
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem 1rem;
+            gap: 2.5rem 1.5rem;
           }
           .eco-stage-arrow { display: none; }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 992px) {
+          .eco { padding: 3rem 2rem; }
           .eco-layout {
             grid-template-columns: 1fr;
             gap: 3rem;
@@ -649,37 +637,40 @@ export default function Ecosystem() {
             align-items: center;
             text-align: center;
           }
-          .eco-desc { text-align: center; }
-          .eco-divider { transform-origin: center !important; }
-          .eco-feat { align-items: center; text-align: center; }
-          .eco-mosaic { max-width: 420px; margin: 0 auto; }
-        }
-
-        @media (max-width: 640px) {
-          .eco { padding: 3rem 1.5rem; }
-          .eco-feats { gap: 1rem; width: 100%; }
-          .eco-feat { flex: 0 0 calc(50% - 0.5rem); }
-          .eco-mosaic { max-width: 320px; }
+          .eco-desc { text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; }
+          .eco-divider { transform-origin: center !important; margin-left: auto; margin-right: auto; }
+          .eco-heading { font-size: clamp(2.2rem, 5vw, 3rem); text-align: center; }
+          .eco-feats { flex-wrap: wrap; justify-content: center; gap: 1.5rem; width: 100%; max-width: 700px; margin: 0 auto; }
+          .eco-feat { flex: 0 0 calc(50% - 0.75rem); align-items: center; text-align: center; }
+          .eco-mosaic { max-width: 480px; margin: 0 auto; }
           .eco-pipeline-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem 0.8rem;
+            gap: 2.5rem 1.5rem;
           }
+
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
+          .eco { padding: 3rem 1.5rem; }
+          .eco-mosaic { max-width: 400px; }
+          .eco-pipeline-grid { gap: 2rem 1rem; }
+        }
+
+        @media (max-width: 576px) {
           .eco { padding: 2.5rem 1rem; }
-          .eco-feats { flex-direction: column; gap: 1.5rem; }
-          .eco-feat { flex: 0 0 100%; }
-          .eco-mosaic { max-width: 100%; }
+          .eco-heading { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+          .eco-mosaic { max-width: 320px; }
           .eco-pipeline-grid {
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
           }
+          .eco-feats { flex-direction: column; gap: 1.5rem; }
+          .eco-feat { flex: 0 0 100%; }
+          .eco-stage-card { padding: 2rem 1.5rem; }
         }
       `}</style>
 
-            {/* Decorative leaf corner */}
-            <img src="/sideImgOfeco.png" alt="" className="eco-decor-tr" />
+
 
             <div className="eco-layout">
                 {/* ── LEFT: Text Content ── */}
@@ -707,7 +698,7 @@ export default function Ecosystem() {
                         custom={1}
                     >
                         From Research to<br />
-                        <span className="green" style={{ whiteSpace: "nowrap" }}>
+                        <span className="green" style={{ display: "inline-block" }}>
                             Green Infrastructure
                             <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />

@@ -3,6 +3,7 @@ import About from "@/Components/Home/about";
 import Ecosystem from "@/Components/Home/ecosystem";
 import BioTechLab from "@/Components/Home/biotechlab";
 import Nursery from "@/Components/Home/nursery";
+// import Signature from "@/Components/Home/signature";
 
 export const metadata = {
   title: "A-One Biotech | Engineering the Future of Green Life",
@@ -20,6 +21,7 @@ export default function Home() {
       <Ecosystem />
       <BioTechLab />
       <Nursery />
+      {/* <Signature /> */}
     </main>
   );
 }
