@@ -5,312 +5,312 @@ import { motion, useInView } from "framer-motion";
 
 /* ── animation variants ─────────────────────────────── */
 const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
-    }),
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-    }),
+  hidden: { opacity: 0 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 /* ── feature cards data ─────────────────────────────── */
 const features = [
-    {
-        title: "Custom-Built\nClimate Control",
-        desc: "Engineered to facilitate granular control over temperature and humidity, ensuring optimal hardening and uncompromised structural quality for every plant.",
-        img: "/nursery/climate.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22V12" />
-                <path d="M12 12c-2-2-4-2-4-2s-2 2-2 4 2 4 2 4c0-2 2-4 4-6Z" />
-                <path d="M12 12c2-2 4-2 4-2s2 2 2 4-2 4-2 4c0-2-2-4-4-6Z" />
-                <path d="M12 6c-1-1-2-1-2-1s-1 1-1 2 1 2 1 2c0-1 1-2 2-3Z" />
-                <path d="M12 6c1-1 2-1 2-1s1 1 1 2-1 2-1 2c0-1-1-2-2-3Z" />
-            </svg>
-        ),
-    },
-    {
-        title: "Strategic Geographic\nAdvantage",
-        desc: "Located at Floriculture Park Ambi, Talegaon Dabhade MIDC. We leverage the region's naturally gifted climate to accelerate vigorous, year-round plant production.",
-        img: "/nursery/geographic.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="10" r="3" />
-                <path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 11 8 12 1-1 8-6.6 8-12a8 8 0 0 0-8-8Z" />
-            </svg>
-        ),
-    },
-    {
-        title: "Quality &\nDiversity",
-        desc: "Balancing ecological diversity with economic viability. We cultivate a heavily curated portfolio of premium flora engineered for high survivability.",
-        img: "/nursery/diversity.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22V12" />
-                <circle cx="12" cy="12" r="3" />
-                <path d="M12 9c0-3 3-5 5-3s1 4-2 5M12 15c0 3-3 5-5 3s-1-4 2-5M15 12c3 0 5-3 3-5s-4-1-5 2M9 12c-3 0-5 3-3 5s4 1 5-2" />
-            </svg>
-        ),
-    },
-    {
-        title: "High-Volume\nCultivation",
-        desc: "Infrastructure designed to support the mass propagation of over 180+ distinct varieties of indoor and outdoor ornamental plants without sacrificing genetic uniformity.",
-        img: "/nursery/highvolume.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M11 20a2 2 0 0 1-2-2v-5" />
-                <path d="M15 20a2 2 0 0 0 2-2v-3" />
-                <path d="M8 2h8l2 7H6l2-7Z" />
-                <path d="M12 9v11" />
-                <path d="M7.5 13s2-2 4.5-2" />
-                <path d="M16.5 15s-2-2-4.5-2" />
-                <path d="M6 22h12" />
-            </svg>
-        ),
-    },
+  {
+    title: "Custom-Built\nClimate Control",
+    desc: "Engineered to facilitate granular control over temperature and humidity, ensuring optimal hardening and uncompromised structural quality for every plant.",
+    img: "/nursery/climate.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22V12" />
+        <path d="M12 12c-2-2-4-2-4-2s-2 2-2 4 2 4 2 4c0-2 2-4 4-6Z" />
+        <path d="M12 12c2-2 4-2 4-2s2 2 2 4-2 4-2 4c0-2-2-4-4-6Z" />
+        <path d="M12 6c-1-1-2-1-2-1s-1 1-1 2 1 2 1 2c0-1 1-2 2-3Z" />
+        <path d="M12 6c1-1 2-1 2-1s1 1 1 2-1 2-1 2c0-1-1-2-2-3Z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Strategic Geographic\nAdvantage",
+    desc: "Located at Floriculture Park Ambi, Talegaon Dabhade MIDC. We leverage the region's naturally gifted climate to accelerate vigorous, year-round plant production.",
+    img: "/nursery/geographic.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="10" r="3" />
+        <path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 11 8 12 1-1 8-6.6 8-12a8 8 0 0 0-8-8Z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Quality &\nDiversity",
+    desc: "Balancing ecological diversity with economic viability. We cultivate a heavily curated portfolio of premium flora engineered for high survivability.",
+    img: "/nursery/diversity.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22V12" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 9c0-3 3-5 5-3s1 4-2 5M12 15c0 3-3 5-5 3s-1-4 2-5M15 12c3 0 5-3 3-5s-4-1-5 2M9 12c-3 0-5 3-3 5s4 1 5-2" />
+      </svg>
+    ),
+  },
+  {
+    title: "High-Volume\nCultivation",
+    desc: "Infrastructure designed to support the mass propagation of over 180+ distinct varieties of indoor and outdoor ornamental plants without sacrificing genetic uniformity.",
+    img: "/nursery/highvolume.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M11 20a2 2 0 0 1-2-2v-5" />
+        <path d="M15 20a2 2 0 0 0 2-2v-3" />
+        <path d="M8 2h8l2 7H6l2-7Z" />
+        <path d="M12 9v11" />
+        <path d="M7.5 13s2-2 4.5-2" />
+        <path d="M16.5 15s-2-2-4.5-2" />
+        <path d="M6 22h12" />
+      </svg>
+    ),
+  },
 ];
 
 /* ── plant portfolio data ───────────────────────────── */
 const plants = [
-    { 
-        name: "Syngonium White Butterfly", 
-        type: "Elegant foliage plant", 
-        img: "/nursery/PlantImg1.png",
-        desc: "Elegant foliage plant with soft creamy-green arrowhead leaves. Perfect for indoor décor, low-maintenance landscaping, and air-purifying environments.",
-        features: [
-            "Attractive variegated foliage",
-            "Easy to grow and maintain",
-            "Ideal for homes and offices"
-        ]
-    },
-    { 
-        name: "Green Ground Cover", 
-        type: "Plantlets", 
-        img: "/nursery/PlantImg7.png",
-        desc: "Hardy, spreading plants perfect for covering bare soil in terrariums, dish gardens, or outdoor shaded areas.",
-        features: [
-            "Rapid spreading growth",
-            "Helps retain soil moisture",
-            "Creates a lush carpet effect"
-        ]
-    },
-    { 
-        name: "Syngonium Variegated", 
-        type: "Syngonium podophyllum", 
-        img: "/nursery/PlantImg3.png",
-        desc: "A striking foliage plant featuring creamy-white centers and rich green margins. Perfect for adding elegance to indoor spaces and landscape designs.",
-        features: [
-            "Attractive variegated leaves",
-            "Low-maintenance growth",
-            "Ideal for indoor décor 🌿"
-        ]
-    },
-    { 
-        name: "Aglaonema Red", 
-        type: "Aglaonema Siam Aurora", 
-        img: "/nursery/PlantImg4.png",
-        desc: "A stunning ornamental plant with vibrant red and green foliage that brings color and elegance to any space.",
-        features: [
-            "Striking red-green leaves",
-            "Low-light tolerant",
-            "Easy-care indoor plant 🌿✨"
-        ]
-    },
-    { 
-        name: "Elephant Bush", 
-        type: "Portulacaria afra", 
-        img: "/nursery/PlantImg5.png",
-        desc: "A compact succulent with thick, rounded leaves that stores water efficiently. Perfect for indoor displays, bonsai, and low-maintenance landscapes.",
-        features: [
-            "Drought-tolerant succulent",
-            "Easy to grow and maintain",
-            "Ideal for pots and bonsai 🌿"
-        ]
-    },
-    { 
-        name: "Baby Rubber Plant", 
-        type: "Peperomia obtusifolia", 
-        img: "/nursery/PlantImg6.png",
-        desc: "A compact ornamental plant with thick, glossy green leaves. Perfect for desks, homes, and modern indoor spaces.",
-        features: [
-            "Glossy evergreen foliage",
-            "Low-maintenance indoor plant",
-            "Compact and air-purifying 🌿✨"
-        ]
-    },
-    { 
-        name: "Syngonium White Butterfly", 
-        type: "Tissue-cultured plant", 
-        img: "/nursery/PlantImg2.png",
-        desc: "Young tissue-cultured plants with attractive arrowhead-shaped leaves. Ideal for indoor décor, landscaping, and commercial nursery production.",
-        features: [
-            "Fast-growing foliage plant",
-            "Easy to maintain",
-            "Perfect for indoor & landscape use"
-        ]
-    },
-    { 
-        name: "Cryptanthus", 
-        type: "Cryptanthus spp.", 
-        img: "/nursery/PlantImg8.png",
-        desc: "A unique bromeliad with star-shaped foliage and striking bronze-green tones. Perfect for indoor displays, terrariums, and decorative landscapes.",
-        features: [
-            "Distinctive star-shaped rosette",
-            "Compact ornamental foliage",
-            "Ideal for indoor décor and terrariums 🌿✨"
-        ]
-    },
+  {
+    name: "Syngonium White Butterfly",
+    type: "Elegant foliage plant",
+    img: "/nursery/PlantImg1.png",
+    desc: "Elegant foliage plant with soft creamy-green arrowhead leaves. Perfect for indoor décor, low-maintenance landscaping, and air-purifying environments.",
+    features: [
+      "Attractive variegated foliage",
+      "Easy to grow and maintain",
+      "Ideal for homes and offices"
+    ]
+  },
+  {
+    name: "Green Ground Cover",
+    type: "Plantlets",
+    img: "/nursery/PlantImg7.png",
+    desc: "Hardy, spreading plants perfect for covering bare soil in terrariums, dish gardens, or outdoor shaded areas.",
+    features: [
+      "Rapid spreading growth",
+      "Helps retain soil moisture",
+      "Creates a lush carpet effect"
+    ]
+  },
+  {
+    name: "Syngonium Variegated",
+    type: "Syngonium podophyllum",
+    img: "/nursery/PlantImg3.png",
+    desc: "A striking foliage plant featuring creamy-white centers and rich green margins. Perfect for adding elegance to indoor spaces and landscape designs.",
+    features: [
+      "Attractive variegated leaves",
+      "Low-maintenance growth",
+      "Ideal for indoor décor 🌿"
+    ]
+  },
+  {
+    name: "Aglaonema Red",
+    type: "Aglaonema Siam Aurora",
+    img: "/nursery/PlantImg4.png",
+    desc: "A stunning ornamental plant with vibrant red and green foliage that brings color and elegance to any space.",
+    features: [
+      "Striking red-green leaves",
+      "Low-light tolerant",
+      "Easy-care indoor plant 🌿✨"
+    ]
+  },
+  {
+    name: "Elephant Bush",
+    type: "Portulacaria afra",
+    img: "/nursery/PlantImg5.png",
+    desc: "A compact succulent with thick, rounded leaves that stores water efficiently. Perfect for indoor displays, bonsai, and low-maintenance landscapes.",
+    features: [
+      "Drought-tolerant succulent",
+      "Easy to grow and maintain",
+      "Ideal for pots and bonsai 🌿"
+    ]
+  },
+  {
+    name: "Baby Rubber Plant",
+    type: "Peperomia obtusifolia",
+    img: "/nursery/PlantImg6.png",
+    desc: "A compact ornamental plant with thick, glossy green leaves. Perfect for desks, homes, and modern indoor spaces.",
+    features: [
+      "Glossy evergreen foliage",
+      "Low-maintenance indoor plant",
+      "Compact and air-purifying 🌿✨"
+    ]
+  },
+  {
+    name: "Syngonium White Butterfly",
+    type: "Tissue-cultured plant",
+    img: "/nursery/PlantImg2.png",
+    desc: "Young tissue-cultured plants with attractive arrowhead-shaped leaves. Ideal for indoor décor, landscaping, and commercial nursery production.",
+    features: [
+      "Fast-growing foliage plant",
+      "Easy to maintain",
+      "Perfect for indoor & landscape use"
+    ]
+  },
+  {
+    name: "Cryptanthus",
+    type: "Cryptanthus spp.",
+    img: "/nursery/PlantImg8.png",
+    desc: "A unique bromeliad with star-shaped foliage and striking bronze-green tones. Perfect for indoor displays, terrariums, and decorative landscapes.",
+    features: [
+      "Distinctive star-shaped rosette",
+      "Compact ornamental foliage",
+      "Ideal for indoor décor and terrariums 🌿✨"
+    ]
+  },
 ];
 
 /* ── Leaf icon component ────────────────────────────── */
 const LeafIcon = ({ size = 18, color = "#2d6a1e" }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path
-            d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z"
-            fill={color}
-            opacity=".9"
-        />
-    </svg>
+  <svg width={size} height={size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z"
+      fill={color}
+      opacity=".9"
+    />
+  </svg>
 );
 
 /* ── Plant Card component (Flippable) ───────────────── */
 const PlantCard = ({ plant, custom, inView, fadeUp }) => {
-    const [isFlipped, setIsFlipped] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
-    return (
-        <motion.div
-            className={`nursery-plant-card ${isFlipped ? 'flipped' : ''}`}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            custom={custom}
-            onClick={() => setIsFlipped(!isFlipped)}
-        >
-            <div className="nursery-plant-card-inner">
-                {/* FRONT */}
-                <div className="nursery-plant-card-front">
-                    <div className="nursery-plant-img-wrap">
-                        <img
-                            className="nursery-plant-img"
-                            src={plant.img}
-                            alt={plant.name}
-                        />
-                    </div>
-                    <div className="nursery-plant-info">
-                        <div className="nursery-plant-text">
-                            <div className="nursery-plant-name">{plant.name}</div>
-                            <div className="nursery-plant-type">{plant.type}</div>
-                        </div>
-                        <div className="nursery-plant-arrow">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                {/* BACK */}
-                <div className="nursery-plant-card-back">
-                    <div className="nursery-plant-back-title">{plant.name}</div>
-                    <div className="nursery-plant-back-desc">{plant.desc}</div>
-                    <ul className="nursery-plant-back-features">
-                        {plant.features?.map((feature, idx) => (
-                            <li key={idx}>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                {feature}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+  return (
+    <motion.div
+      className={`nursery-plant-card ${isFlipped ? 'flipped' : ''}`}
+      variants={fadeUp}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      custom={custom}
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <div className="nursery-plant-card-inner">
+        {/* FRONT */}
+        <div className="nursery-plant-card-front">
+          <div className="nursery-plant-img-wrap">
+            <img
+              className="nursery-plant-img"
+              src={plant.img}
+              alt={plant.name}
+            />
+          </div>
+          <div className="nursery-plant-info">
+            <div className="nursery-plant-text">
+              <div className="nursery-plant-name">{plant.name}</div>
+              <div className="nursery-plant-type">{plant.type}</div>
             </div>
-        </motion.div>
-    );
+            <div className="nursery-plant-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        {/* BACK */}
+        <div className="nursery-plant-card-back">
+          <div className="nursery-plant-back-title">{plant.name}</div>
+          <div className="nursery-plant-back-desc">{plant.desc}</div>
+          <ul className="nursery-plant-back-features">
+            {plant.features?.map((feature, idx) => (
+              <li key={idx}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 export default function Nursery() {
-    const sectionRef = useRef(null);
-    const inView = useInView(sectionRef, { once: true, margin: "-80px" });
-    const featuresRef = useRef(null);
-    const featuresInView = useInView(featuresRef, { once: true, margin: "-40px" });
-    const [activeFeature, setActiveFeature] = useState(0);
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const featuresRef = useRef(null);
+  const featuresInView = useInView(featuresRef, { once: true, margin: "-40px" });
+  const [activeFeature, setActiveFeature] = useState(0);
 
-    const renderBanner = (className) => (
+  const renderBanner = (className) => (
+    <motion.div
+      className={`nursery-bottom-banner ${className}`}
+      variants={fadeUp}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      custom={1}
+    >
+      <div className="nursery-banner-img-wrap">
+        <img
+          className="nursery-banner-img cinematic-pan"
+          src="/nursery/hero_cinematic.png"
+          alt="A-One Biotech Nursery - Cinematic View"
+        />
+        <div className="nursery-banner-img-overlay" />
+
+        {/* 180+ stat badge — inside the image */}
         <motion.div
-            className={`nursery-bottom-banner ${className}`}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            custom={1}
+          className="nursery-stat-badge"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-            <div className="nursery-banner-img-wrap">
-                <img
-                    className="nursery-banner-img cinematic-pan"
-                    src="/nursery/hero_cinematic.png"
-                    alt="A-One Biotech Nursery - Cinematic View"
-                />
-                <div className="nursery-banner-img-overlay" />
-
-                {/* 180+ stat badge — inside the image */}
-                <motion.div
-                    className="nursery-stat-badge"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                >
-                    <div className="nursery-stat-icon">
-                        <LeafIcon size={20} color="#fff" />
-                    </div>
-                    <div>
-                        <motion.div 
-                            className="nursery-stat-val"
-                            initial={{ opacity: 0, x: -15 }}
-                            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
-                            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            180+
-                        </motion.div>
-                        <motion.div 
-                            className="nursery-stat-label"
-                            initial={{ opacity: 0, x: -15 }}
-                            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
-                            transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            Varieties Cultivated
-                        </motion.div>
-                        <motion.div 
-                            className="nursery-stat-sub"
-                            initial={{ opacity: 0, x: -15 }}
-                            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
-                            transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            Indoor & Outdoor<br />Ornamental Plants
-                        </motion.div>
-                    </div>
-                </motion.div>
-            </div>
-
-            {/* Decorative leaf illustration */}
-            <svg className="nursery-decor-leaf" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 180C20 180 40 80 120 40C120 40 160 20 180 10C180 10 170 90 140 130C140 130 120 160 20 180Z" fill="#2d6a1e" />
-                <path d="M20 180C60 140 100 110 180 10" fill="none" stroke="#2d6a1e" strokeWidth="1.5" />
-                <path d="M60 160C70 130 90 105 130 70" fill="none" stroke="#2d6a1e" strokeWidth="0.8" />
-                <path d="M40 170C55 145 75 120 110 90" fill="none" stroke="#2d6a1e" strokeWidth="0.8" />
-            </svg>
+          <div className="nursery-stat-icon">
+            <LeafIcon size={20} color="#fff" />
+          </div>
+          <div>
+            <motion.div
+              className="nursery-stat-val"
+              initial={{ opacity: 0, x: -15 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              180+
+            </motion.div>
+            <motion.div
+              className="nursery-stat-label"
+              initial={{ opacity: 0, x: -15 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
+              transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Varieties Cultivated
+            </motion.div>
+            <motion.div
+              className="nursery-stat-sub"
+              initial={{ opacity: 0, x: -15 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
+              transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Indoor & Outdoor<br />Ornamental Plants
+            </motion.div>
+          </div>
         </motion.div>
-    );
+      </div>
 
-    return (
-        <>
-            <style>{`
+      {/* Decorative leaf illustration */}
+      <svg className="nursery-decor-leaf" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 180C20 180 40 80 120 40C120 40 160 20 180 10C180 10 170 90 140 130C140 130 120 160 20 180Z" fill="#2d6a1e" />
+        <path d="M20 180C60 140 100 110 180 10" fill="none" stroke="#2d6a1e" strokeWidth="1.5" />
+        <path d="M60 160C70 130 90 105 130 70" fill="none" stroke="#2d6a1e" strokeWidth="0.8" />
+        <path d="M40 170C55 145 75 120 110 90" fill="none" stroke="#2d6a1e" strokeWidth="0.8" />
+      </svg>
+    </motion.div>
+  );
+
+  return (
+    <>
+      <style>{`
         /* ─── NURSERY SECTION ───────────────────────────── */
         .nursery {
           position: relative;
@@ -409,7 +409,6 @@ export default function Nursery() {
           border-radius: 300px 16px 300px 16px;
           overflow: hidden;
           position: relative;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.10);
         }
         .nursery-banner-img {
           width: 100%;
@@ -916,134 +915,134 @@ export default function Nursery() {
         }
       `}</style>
 
-            <section className="nursery" id="nursery" ref={sectionRef}>
+      <section className="nursery" id="nursery" ref={sectionRef}>
 
-                {/* ── HERO AREA ─────────────────────────────────── */}
-                <div className="nursery-hero">
-                    {/* LEFT COLUMN: Text + Timeline */}
-                    <div className="nursery-hero-left-column">
-                        <motion.div
-                            className="nursery-hero-left"
-                            variants={fadeUp}
-                            initial="hidden"
-                            animate={inView ? "visible" : "hidden"}
-                            custom={0}
-                        >
-                            <div className="nursery-eyebrow">
-                                <LeafIcon size={16} color="#00A651" />
-                                <span>OUR NURSERY EXCELLENCE</span>
-                            </div>
+        {/* ── HERO AREA ─────────────────────────────────── */}
+        <div className="nursery-hero">
+          {/* LEFT COLUMN: Text + Timeline */}
+          <div className="nursery-hero-left-column">
+            <motion.div
+              className="nursery-hero-left"
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              custom={0}
+            >
+              <div className="nursery-eyebrow">
+                <LeafIcon size={16} color="#00A651" />
+                <span>OUR NURSERY EXCELLENCE</span>
+              </div>
 
-                            <h2 className="nursery-heading">
-                                Growing Stronger Every Day.{" "}
-                                Preparing healthy, resilient plants for the{" "}
-                            <span className="green">real world</span>
-                            <svg className="leaf-inline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
-                            </svg>
-                        </h2>
+              <h2 className="nursery-heading">
+                Growing Stronger Every Day.{" "}
+                Preparing healthy, resilient plants for the{" "}
+                <span className="green">real world</span>
+                <svg className="leaf-inline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
+                </svg>
+              </h2>
 
-                        <motion.div
-                            className="nursery-divider"
-                            initial={{ scaleX: 0 }}
-                            animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                            style={{ transformOrigin: "left" }}
-                        />
+              <motion.div
+                className="nursery-divider"
+                initial={{ scaleX: 0 }}
+                animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                style={{ transformOrigin: "left" }}
+              />
 
-                        {renderBanner('mobile-banner')}
+              {renderBanner('mobile-banner')}
 
-                        <p className="nursery-desc">
-                            The A-One Biotech nursery is the critical proving ground where science
-                            meets the soil. Situated in the naturally gifted climate of Floriculture Park Ambi, 
-                            this advanced facility is engineered specifically for the hardening and large-scale 
-                            propagation of tissue-cultured plantlets. By integrating custom-built climate 
-                            control systems with precision horticulture, we expertly transform delicate 
-                            in-vitro cultures into robust, weather-resilient plants. Our expansive infrastructure 
-                            supports the high-volume cultivation of over 180+ distinct varieties of premium 
-                            indoor and outdoor ornamental flora. We prioritize both ecological diversity and 
-                            economic viability, ensuring that every plant maintains strict genetic uniformity, 
-                            uncompromised structural quality, and high survivability, making them perfectly 
-                            acclimated and ready for global deployment.
-                        </p>
+              <p className="nursery-desc">
+                The A-One Biotech nursery is the critical proving ground where science
+                meets the soil. Situated in the naturally gifted climate of Floriculture Park Ambi,
+                this advanced facility is engineered specifically for the hardening and large-scale
+                propagation of tissue-cultured plantlets. By integrating custom-built climate
+                control systems with precision horticulture, we expertly transform delicate
+                in-vitro cultures into robust, weather-resilient plants. Our expansive infrastructure
+                supports the high-volume cultivation of over 180+ distinct varieties of premium
+                indoor and outdoor ornamental flora. We prioritize both ecological diversity and
+                economic viability, ensuring that every plant maintains strict genetic uniformity,
+                uncompromised structural quality, and high survivability, making them perfectly
+                acclimated and ready for global deployment.
+              </p>
+            </motion.div>
+
+            {/* ── CURVED TIMELINE FEATURES ─── */}
+            <div className="nursery-features-timeline" ref={featuresRef}>
+              <div className="nursery-timeline-left">
+                <motion.div
+                  className="nursery-curve-line"
+                  initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+                  animate={featuresInView ? { clipPath: "inset(0% 0% 0% 0%)" } : { clipPath: "inset(0% 0% 100% 0%)" }}
+                  transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
+                />
+                {features.map((feat, i) => (
+                  <motion.div
+                    key={feat.title}
+                    className="nursery-timeline-item"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.25 }}
+                  >
+                    <motion.div
+                      className="nursery-timeline-icon-wrap"
+                      variants={{
+                        hidden: { scale: 0, rotate: -60, opacity: 0 },
+                        visible: {
+                          scale: 1,
+                          rotate: 0,
+                          opacity: 1,
+                          transition: { type: "spring", stiffness: 260, damping: 18, delay: i * 0.12 + 0.1 }
+                        }
+                      }}
+                    >
+                      {feat.icon}
                     </motion.div>
+                    <motion.div
+                      className="nursery-timeline-content"
+                      variants={{
+                        hidden: { opacity: 0, x: 20, y: 10 },
+                        visible: {
+                          opacity: 1,
+                          x: 0,
+                          y: 0,
+                          transition: { duration: 0.6, delay: i * 0.12 + 0.2, ease: [0.22, 1, 0.36, 1] }
+                        }
+                      }}
+                    >
+                      <div className="nursery-timeline-number">0{i + 1}</div>
+                      <h3 className="nursery-timeline-title">{feat.title}</h3>
+                      <p className="nursery-timeline-desc">{feat.desc}</p>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-                        {/* ── CURVED TIMELINE FEATURES ─── */}
-                        <div className="nursery-features-timeline" ref={featuresRef}>
-                            <div className="nursery-timeline-left">
-                                <motion.div 
-                                    className="nursery-curve-line"
-                                    initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-                                    animate={featuresInView ? { clipPath: "inset(0% 0% 0% 0%)" } : { clipPath: "inset(0% 0% 100% 0%)" }}
-                                    transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
-                                />
-                                {features.map((feat, i) => (
-                                    <motion.div 
-                                        key={feat.title} 
-                                        className="nursery-timeline-item"
-                                        initial="hidden"
-                                        whileInView="visible"
-                                        viewport={{ once: true, amount: 0.25 }}
-                                    >
-                                        <motion.div 
-                                            className="nursery-timeline-icon-wrap"
-                                            variants={{
-                                                hidden: { scale: 0, rotate: -60, opacity: 0 },
-                                                visible: { 
-                                                    scale: 1, 
-                                                    rotate: 0, 
-                                                    opacity: 1,
-                                                    transition: { type: "spring", stiffness: 260, damping: 18, delay: i * 0.12 + 0.1 }
-                                                }
-                                            }}
-                                        >
-                                            {feat.icon}
-                                        </motion.div>
-                                        <motion.div 
-                                            className="nursery-timeline-content"
-                                            variants={{
-                                                hidden: { opacity: 0, x: 20, y: 10 },
-                                                visible: { 
-                                                    opacity: 1, 
-                                                    x: 0, 
-                                                    y: 0,
-                                                    transition: { duration: 0.6, delay: i * 0.12 + 0.2, ease: [0.22, 1, 0.36, 1] }
-                                                }
-                                            }}
-                                        >
-                                            <div className="nursery-timeline-number">0{i + 1}</div>
-                                            <h3 className="nursery-timeline-title">{feat.title}</h3>
-                                            <p className="nursery-timeline-desc">{feat.desc}</p>
-                                        </motion.div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* RIGHT SIDE: PLANT PORTFOLIO */}
-                    <div className="nursery-hero-right">
+          {/* RIGHT SIDE: PLANT PORTFOLIO */}
+          <div className="nursery-hero-right">
 
 
-                        <div className="nursery-portfolio-grid">
-                            {plants.map((plant, i) => (
-                                <PlantCard 
-                                    key={plant.img} 
-                                    plant={plant} 
-                                    custom={(i + 1) * 0.8} 
-                                    inView={inView} 
-                                    fadeUp={fadeUp} 
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
+            <div className="nursery-portfolio-grid">
+              {plants.map((plant, i) => (
+                <PlantCard
+                  key={plant.img}
+                  plant={plant}
+                  custom={(i + 1) * 0.8}
+                  inView={inView}
+                  fadeUp={fadeUp}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
 
 
 
-                {/* ── BOTTOM BANNER (moved from hero) ─── */}
-                {renderBanner('desktop-banner')}
-            </section>
-        </>
-    );
+        {/* ── BOTTOM BANNER (moved from hero) ─── */}
+        {renderBanner('desktop-banner')}
+      </section>
+    </>
+  );
 }

@@ -190,6 +190,7 @@ export default function Hero() {
           flex-direction: column;
           justify-content: center;
           padding-right: 2.2rem;
+          padding-top: 4rem;
         }
 
         .eyebrow {
@@ -531,7 +532,11 @@ export default function Hero() {
 
         @media (max-width: 768px) {
           .hero-main {
-            padding: 2rem 1.5rem 0;
+            padding: 7rem 1.5rem 0;
+          }
+          .hero-left {
+            padding-top: 1rem;
+            padding-right: 0;
           }
           .stats-wrap {
             padding: 0 1.5rem 1.5rem;
@@ -676,7 +681,7 @@ export default function Hero() {
           </div>
 
           {/* RIGHT PANELS */}
-          <div className="hero-right max-h-[650px]">
+          <div className="hero-right md:max-h-[580px] md:mt-24">
             <div className="relative flex items-center h-full panels-wrapper">
 
               <div className="flex h-full items-stretch w-max panels-container">
@@ -698,11 +703,11 @@ export default function Hero() {
                     className={`group relative h-full flex-shrink-0 transition-all duration-700 ease-out panel-item ${(activeCard === panel.id || flippedCard === panel.id) ? "active z-30" : "z-10"} ${flippedCard === panel.id ? "flipped z-50" : ""}`}
                     style={{ perspective: "1000px" }}
                   >
-                    <div 
-                      className="relative h-full w-full transition-transform duration-700" 
-                      style={{ 
-                        transformStyle: "preserve-3d", 
-                        transform: flippedCard === panel.id ? "rotateY(180deg)" : "rotateY(0deg)" 
+                    <div
+                      className="relative h-full w-full transition-transform duration-700"
+                      style={{
+                        transformStyle: "preserve-3d",
+                        transform: flippedCard === panel.id ? "rotateY(180deg)" : "rotateY(0deg)"
                       }}
                     >
                       {/* FRONT OF CARD */}
@@ -726,16 +731,16 @@ export default function Hero() {
                       </div>
 
                       {/* BACK OF CARD (Complete Img) */}
-                      <div 
-                        className="absolute inset-0" 
-                        style={{ 
-                          backfaceVisibility: "hidden", 
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)"
                         }}
                       >
-                         <div className="relative h-full w-full overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-black">
-                           <img src={panel.img} alt={panel.title} className="absolute inset-0 h-full w-full object-cover" />
-                         </div>
+                        <div className="relative h-full w-full overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-black">
+                          <img src={panel.img} alt={panel.title} className="absolute inset-0 h-full w-full object-cover" />
+                        </div>
                       </div>
                     </div>
 

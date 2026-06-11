@@ -5,51 +5,51 @@ import { motion, useInView } from "framer-motion";
 
 /* ── feature data ────────────────────────────────────── */
 const features = [
-    {
-        title: "Advanced\nBiotech",
-        desc: "Cutting-edge plant science",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
-                <path d="M9 18h6" />
-                <path d="M10 22h4" />
-            </svg>
-        ),
-    },
-    {
-        title: "Quality\nAssured",
-        desc: "Controlled environment",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                <path d="m9 12 2 2 4-4" />
-            </svg>
-        ),
-    },
-    {
-        title: "Sustainable\nBy Design",
-        desc: "Green solutions for a better future",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22V12" />
-                <path d="M12 12C12 12 4 10 2 4" />
-                <path d="M12 12C12 12 20 10 22 4" />
-                <path d="M12 7C12 7 8 5 6 1" />
-                <path d="M12 7C12 7 16 5 18 1" />
-            </svg>
-        ),
-    },
-    {
-        title: "End-to-End\nExcellence",
-        desc: "One ecosystem.\nComplete care.",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                <path d="M2 12h20" />
-            </svg>
-        ),
-    },
+  {
+    title: "Advanced\nBiotech",
+    desc: "Cutting-edge plant science",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+        <path d="M9 18h6" />
+        <path d="M10 22h4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Quality\nAssured",
+    desc: "Controlled environment",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Sustainable\nBy Design",
+    desc: "Green solutions for a better future",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22V12" />
+        <path d="M12 12C12 12 4 10 2 4" />
+        <path d="M12 12C12 12 20 10 22 4" />
+        <path d="M12 7C12 7 8 5 6 1" />
+        <path d="M12 7C12 7 16 5 18 1" />
+      </svg>
+    ),
+  },
+  {
+    title: "End-to-End\nExcellence",
+    desc: "One ecosystem.\nComplete care.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+        <path d="M2 12h20" />
+      </svg>
+    ),
+  },
 ];
 
 /* ── Mosaic segment images & clip paths ─────────────── */
@@ -62,156 +62,156 @@ const features = [
   D5 (290°) → edge ~(0%, 32%)    – left, upper
 */
 const segments = [
-    {
-        // Segment 1: top-left (Research / Microscope)
-        img: "/hero-panel1.png",
-        alt: "Research & Innovation",
-        clip: "polygon(50% 50%, 0% 32%, 0% 0%, 41% 0%)",
-        hoverClip: "polygon(100% 100%, -100% 100%, -100% -100%, 100% -100%)",
-    },
-    {
-        // Segment 2: top-right (Tissue Culture Lab)
-        img: "/hero-panel2.png",
-        alt: "Tissue Culture Lab",
-        clip: "polygon(50% 50%, 41% 0%, 100% 0%, 100% 27%)",
-        hoverClip: "polygon(-100% 100%, -100% -100%, 200% -100%, 200% 100%)",
-    },
-    {
-        // Segment 3: right (Greenhouse / Nursery)
-        img: "/hero-panel3.png",
-        alt: "Nursery Production",
-        clip: "polygon(50% 50%, 100% 27%, 100% 100%, 85% 100%)",
-        hoverClip: "polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%)",
-    },
-    {
-        // Segment 4: bottom (Plant Collections / Flowers)
-        img: "/hero-panel4.png",
-        alt: "Plant Collections",
-        clip: "polygon(50% 50%, 85% 100%, 8% 100%, 8% 100%)",
-        hoverClip: "polygon(50% -200%, 250% 200%, -150% 200%, -150% 200%)",
-    },
-    {
-        // Segment 5: left (Green Infrastructure / Vertical Garden)
-        img: "/hero-panel5.png",
-        alt: "Green Infrastructure",
-        clip: "polygon(50% 50%, 8% 100%, 0% 100%, 0% 32%)",
-        hoverClip: "polygon(200% -100%, 200% 200%, -100% 200%, -100% -100%)",
-    },
+  {
+    // Segment 1: top-left (Research / Microscope)
+    img: "/hero-panel1.png",
+    alt: "Research & Innovation",
+    clip: "polygon(50% 50%, 0% 32%, 0% 0%, 41% 0%)",
+    hoverClip: "polygon(100% 100%, -100% 100%, -100% -100%, 100% -100%)",
+  },
+  {
+    // Segment 2: top-right (Tissue Culture Lab)
+    img: "/hero-panel2.png",
+    alt: "Tissue Culture Lab",
+    clip: "polygon(50% 50%, 41% 0%, 100% 0%, 100% 27%)",
+    hoverClip: "polygon(-100% 100%, -100% -100%, 200% -100%, 200% 100%)",
+  },
+  {
+    // Segment 3: right (Greenhouse / Nursery)
+    img: "/hero-panel3.png",
+    alt: "Nursery Production",
+    clip: "polygon(50% 50%, 100% 27%, 100% 100%, 85% 100%)",
+    hoverClip: "polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%)",
+  },
+  {
+    // Segment 4: bottom (Plant Collections / Flowers)
+    img: "/hero-panel4.png",
+    alt: "Plant Collections",
+    clip: "polygon(50% 50%, 85% 100%, 8% 100%, 8% 100%)",
+    hoverClip: "polygon(50% -200%, 250% 200%, -150% 200%, -150% 200%)",
+  },
+  {
+    // Segment 5: left (Green Infrastructure / Vertical Garden)
+    img: "/hero-panel5.png",
+    alt: "Green Infrastructure",
+    clip: "polygon(50% 50%, 8% 100%, 0% 100%, 0% 32%)",
+    hoverClip: "polygon(200% -100%, 200% 200%, -100% 200%, -100% -100%)",
+  },
 ];
 
 /* ── 5-stage pipeline data ───────────────────────────── */
 const stages = [
-    {
-        id: "01",
-        title: "RESEARCH",
-        desc: "Continuous innovation and R&D to discover, develop and perfect superior plant varieties.",
-        color: "red",
-        image: "/hero-panel1.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
-                <path d="M9 18h6" />
-                <path d="M10 22h4" />
-            </svg>
-        ),
-    },
-    {
-        id: "02",
-        title: "TISSUE CULTURE LAB",
-        desc: "Sterile, high-tech labs to multiply plant tissues and create true-to-type plantlets.",
-        color: "green",
-        image: "/hero-panel2.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M10 2v7.31M14 2v7.31M8.5 2h7M7 21h10M9 15l1.5-1.5M13.5 16.5 15 15" />
-                <path d="M8.34 9.34L3.89 17A2 2 0 0 0 5.62 20h12.76a2 2 0 0 0 1.73-3L15.66 9.34a2 2 0 0 1-.27-1V2" />
-            </svg>
-        ),
-    },
-    {
-        id: "03",
-        title: "NURSERY PRODUCTION",
-        desc: "Hardening and large-scale propagation to produce healthy, uniform and robust plants.",
-        color: "red",
-        image: "/hero-panel3.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22V12" />
-                <path d="M12 12C12 12 4 10 2 4" />
-                <path d="M12 12C12 12 20 10 22 4" />
-            </svg>
-        ),
-    },
-    {
-        id: "04",
-        title: "PLANT COLLECTIONS",
-        desc: "Wide range of indoor, outdoor, flowering, foliage and landscape plants for every need.",
-        color: "green",
-        image: "/hero-panel4.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect width="7" height="7" x="3" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="14" rx="1" />
-                <rect width="7" height="7" x="3" y="14" rx="1" />
-            </svg>
-        ),
-    },
-    {
-        id: "05",
-        title: "CORONA GREENS",
-        desc: "Design, develop and deliver green infrastructure and sustainable landscapes.",
-        color: "red",
-        image: "/hero-panel5.png",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-                <path d="M9 22v-4h6v4" />
-                <path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01" />
-            </svg>
-        ),
-    },
+  {
+    id: "01",
+    title: "RESEARCH",
+    desc: "Continuous innovation and R&D to discover, develop and perfect superior plant varieties.",
+    color: "red",
+    image: "/hero-panel1.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+        <path d="M9 18h6" />
+        <path d="M10 22h4" />
+      </svg>
+    ),
+  },
+  {
+    id: "02",
+    title: "TISSUE CULTURE LAB",
+    desc: "Sterile, high-tech labs to multiply plant tissues and create true-to-type plantlets.",
+    color: "green",
+    image: "/hero-panel2.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 2v7.31M14 2v7.31M8.5 2h7M7 21h10M9 15l1.5-1.5M13.5 16.5 15 15" />
+        <path d="M8.34 9.34L3.89 17A2 2 0 0 0 5.62 20h12.76a2 2 0 0 0 1.73-3L15.66 9.34a2 2 0 0 1-.27-1V2" />
+      </svg>
+    ),
+  },
+  {
+    id: "03",
+    title: "NURSERY PRODUCTION",
+    desc: "Hardening and large-scale propagation to produce healthy, uniform and robust plants.",
+    color: "red",
+    image: "/hero-panel3.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22V12" />
+        <path d="M12 12C12 12 4 10 2 4" />
+        <path d="M12 12C12 12 20 10 22 4" />
+      </svg>
+    ),
+  },
+  {
+    id: "04",
+    title: "PLANT COLLECTIONS",
+    desc: "Wide range of indoor, outdoor, flowering, foliage and landscape plants for every need.",
+    color: "green",
+    image: "/hero-panel4.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="7" height="7" x="3" y="3" rx="1" />
+        <rect width="7" height="7" x="14" y="3" rx="1" />
+        <rect width="7" height="7" x="14" y="14" rx="1" />
+        <rect width="7" height="7" x="3" y="14" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    id: "05",
+    title: "CORONA GREENS",
+    desc: "Design, develop and deliver green infrastructure and sustainable landscapes.",
+    color: "red",
+    image: "/hero-panel5.png",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+        <path d="M9 22v-4h6v4" />
+        <path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01" />
+      </svg>
+    ),
+  },
 ];
 
 /* ── animation variants ─────────────────────────────── */
 const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
-    }),
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 const scaleIn = {
-    hidden: { opacity: 0, scale: 0.88 },
-    visible: {
-        opacity: 1,
-        scale: 1,
-        transition: { duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] },
-    },
+  hidden: { opacity: 0, scale: 0.88 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const cardPop = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: { duration: 0.6, delay: 0.2 + i * 0.12, ease: [0.22, 1, 0.36, 1] },
-    }),
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, delay: 0.2 + i * 0.12, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 /* ── Ecosystem Component ───────────────────────────── */
 export default function Ecosystem() {
-    const sectionRef = useRef(null);
-    const inView = useInView(sectionRef, { once: true, margin: "-60px" });
-    const pipelineRef = useRef(null);
-    const pipelineInView = useInView(pipelineRef, { once: true, margin: "-40px" });
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-60px" });
+  const pipelineRef = useRef(null);
+  const pipelineInView = useInView(pipelineRef, { once: true, margin: "-40px" });
 
-    return (
-        <section className="eco" id="ecosystem" ref={sectionRef}>
-            <style>{`
+  return (
+    <section className="eco" id="ecosystem" ref={sectionRef}>
+      <style>{`
         /* ─── ECOSYSTEM SECTION ────────────────────────── */
         .eco {
           position: relative;
@@ -672,175 +672,175 @@ export default function Ecosystem() {
 
 
 
-            <div className="eco-layout">
-                {/* ── LEFT: Text Content ── */}
-                <motion.div
-                    className="eco-left"
-                    variants={fadeUp}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                    custom={0}
+      <div className="eco-layout">
+        {/* ── LEFT: Text Content ── */}
+        <motion.div
+          className="eco-left"
+          variants={fadeUp}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          custom={0}
+        >
+          {/* Eyebrow */}
+          <div className="eco-eyebrow">
+            <svg className="eco-eyebrow-leaf" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+              <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
+            </svg>
+            <span>BUSINESS ECOSYSTEM</span>
+          </div>
+
+          {/* Heading */}
+          <motion.h2
+            className="eco-heading"
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            custom={1}
+          >
+            From Research to<br />
+            <span className="green" style={{ display: "inline-block" }}>
+              Green Infrastructure
+              <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
+              </svg>
+            </span>
+          </motion.h2>
+
+          <motion.div
+            className="eco-divider"
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformOrigin: "left" }}
+          />
+
+          {/* Description */}
+          <motion.p
+            className="eco-desc"
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            custom={2}
+          >
+            A-One Biotech follows a tightly integrated ecosystem
+            that ensures quality, consistency and sustainability
+            at every step — from research to real-world greening.
+          </motion.p>
+
+          {/* Feature row */}
+          <motion.div
+            className="eco-feats"
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            custom={3}
+          >
+            {features.map((f, i) => (
+              <div className="eco-feat" key={i}>
+                <div className="eco-feat-icon">{f.icon}</div>
+                <div className="eco-feat-title">{f.title}</div>
+                <div className="eco-feat-desc">{f.desc}</div>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* ── RIGHT: Circular Mosaic ── */}
+        <motion.div
+          className="eco-right"
+          variants={scaleIn}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          <div className="eco-mosaic">
+            <div className="eco-circle">
+              {/* 5 pie-slice image segments */}
+              {segments.map((seg, i) => (
+                <div
+                  key={i}
+                  className="eco-seg"
+                  style={{
+                    "--clip": seg.clip,
+                    "--hover-clip": seg.hoverClip
+                  }}
                 >
-                    {/* Eyebrow */}
-                    <div className="eco-eyebrow">
-                        <svg className="eco-eyebrow-leaf" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                            <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
-                        </svg>
-                        <span>BUSINESS ECOSYSTEM</span>
-                    </div>
-
-                    {/* Heading */}
-                    <motion.h2
-                        className="eco-heading"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        custom={1}
-                    >
-                        From Research to<br />
-                        <span className="green" style={{ display: "inline-block" }}>
-                            Green Infrastructure
-                            <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
-                            </svg>
-                        </span>
-                    </motion.h2>
-
-                    <motion.div
-                        className="eco-divider"
-                        initial={{ scaleX: 0 }}
-                        animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        style={{ transformOrigin: "left" }}
-                    />
-
-                    {/* Description */}
-                    <motion.p
-                        className="eco-desc"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        custom={2}
-                    >
-                        A-One Biotech follows a tightly integrated ecosystem
-                        that ensures quality, consistency and sustainability
-                        at every step — from research to real-world greening.
-                    </motion.p>
-
-                    {/* Feature row */}
-                    <motion.div
-                        className="eco-feats"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        custom={3}
-                    >
-                        {features.map((f, i) => (
-                            <div className="eco-feat" key={i}>
-                                <div className="eco-feat-icon">{f.icon}</div>
-                                <div className="eco-feat-title">{f.title}</div>
-                                <div className="eco-feat-desc">{f.desc}</div>
-                            </div>
-                        ))}
-                    </motion.div>
-                </motion.div>
-
-                {/* ── RIGHT: Circular Mosaic ── */}
-                <motion.div
-                    className="eco-right"
-                    variants={scaleIn}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                >
-                    <div className="eco-mosaic">
-                        <div className="eco-circle">
-                            {/* 5 pie-slice image segments */}
-                            {segments.map((seg, i) => (
-                                <div
-                                    key={i}
-                                    className="eco-seg"
-                                    style={{
-                                        "--clip": seg.clip,
-                                        "--hover-clip": seg.hoverClip
-                                    }}
-                                >
-                                    <img src={seg.img} alt={seg.alt} />
-                                </div>
-                            ))}
-
-                            {/* White divider lines radiating from center */}
-                            <svg className="eco-dividers" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-                                {/* D1: center → (41, 0) */}
-                                <line x1="50" y1="50" x2="41" y2="0" stroke="#fff" strokeWidth="0.6" />
-                                {/* D2: center → (100, 27) */}
-                                <line x1="50" y1="50" x2="100" y2="27" stroke="#fff" strokeWidth="0.6" />
-                                {/* D3: center → (85, 100) */}
-                                <line x1="50" y1="50" x2="85" y2="100" stroke="#fff" strokeWidth="0.6" />
-                                {/* D4: center → (8, 100) */}
-                                <line x1="50" y1="50" x2="8" y2="100" stroke="#fff" strokeWidth="0.6" />
-                                {/* D5: center → (0, 32) */}
-                                <line x1="50" y1="50" x2="0" y2="32" stroke="#fff" strokeWidth="0.6" />
-                            </svg>
-                        </div>
-
-                        {/* Center logo */}
-                        <div className="eco-logo">
-                            <img src="/Logos/LogoBiotech.jpg" alt="A-One Biotech" />
-                        </div>
-                    </div>
-                </motion.div>
-            </div>
-
-            {/* ── 5-STAGE PIPELINE ── */}
-            <div className="eco-pipeline" ref={pipelineRef}>
-                <div className="eco-pipeline-grid">
-                    {stages.map((stage, index) => {
-                        const isRed = stage.color === "red";
-                        return (
-                            <motion.div
-                                className="eco-stage"
-                                key={stage.id}
-                                variants={cardPop}
-                                initial="hidden"
-                                animate={pipelineInView ? "visible" : "hidden"}
-                                custom={index}
-                            >
-                                <div className={`eco-stage-card eco-stage-card--${stage.color}`}>
-                                    {/* Number badge */}
-                                    <div className={`eco-stage-num ${isRed ? "eco-stage-num--red" : "eco-stage-num--green"}`}>
-                                        {stage.id}
-                                    </div>
-
-                                    {/* Icon */}
-                                    <div className={`eco-stage-icon ${isRed ? "eco-stage-icon--red" : "eco-stage-icon--green"}`}>
-                                        {stage.icon}
-                                    </div>
-
-                                    {/* Title */}
-                                    <div className={`eco-stage-title ${isRed ? "eco-stage-title--red" : "eco-stage-title--green"}`}>
-                                        {stage.title}
-                                    </div>
-
-                                    {/* Image */}
-                                    <img src={stage.image} alt={stage.title} className="eco-stage-img" />
-
-                                    {/* Description */}
-                                    <p className="eco-stage-desc">{stage.desc}</p>
-                                </div>
-
-                                {/* Arrow connector */}
-                                {index < stages.length - 1 && (
-                                    <div className="eco-stage-arrow">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M9 18l6-6-6-6" />
-                                        </svg>
-                                    </div>
-                                )}
-                            </motion.div>
-                        );
-                    })}
+                  <img src={seg.img} alt={seg.alt} />
                 </div>
+              ))}
+
+              {/* White divider lines radiating from center */}
+              <svg className="eco-dividers" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                {/* D1: center → (41, 0) */}
+                <line x1="50" y1="50" x2="41" y2="0" stroke="#fff" strokeWidth="0.6" />
+                {/* D2: center → (100, 27) */}
+                <line x1="50" y1="50" x2="100" y2="27" stroke="#fff" strokeWidth="0.6" />
+                {/* D3: center → (85, 100) */}
+                <line x1="50" y1="50" x2="85" y2="100" stroke="#fff" strokeWidth="0.6" />
+                {/* D4: center → (8, 100) */}
+                <line x1="50" y1="50" x2="8" y2="100" stroke="#fff" strokeWidth="0.6" />
+                {/* D5: center → (0, 32) */}
+                <line x1="50" y1="50" x2="0" y2="32" stroke="#fff" strokeWidth="0.6" />
+              </svg>
             </div>
-        </section>
-    );
+
+            {/* Center logo */}
+            <div className="eco-logo">
+              <img src="/Logos/LogoBiotech.jpg" alt="A-One Biotech" />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* ── 5-STAGE PIPELINE ── */}
+      <div className="eco-pipeline" ref={pipelineRef}>
+        <div className="eco-pipeline-grid">
+          {stages.map((stage, index) => {
+            const isRed = stage.color === "red";
+            return (
+              <motion.div
+                className="eco-stage"
+                key={stage.id}
+                variants={cardPop}
+                initial="hidden"
+                animate={pipelineInView ? "visible" : "hidden"}
+                custom={index}
+              >
+                <div className={`eco-stage-card eco-stage-card--${stage.color}`}>
+                  {/* Number badge */}
+                  <div className={`eco-stage-num ${isRed ? "eco-stage-num--red" : "eco-stage-num--green"}`}>
+                    {stage.id}
+                  </div>
+
+                  {/* Icon */}
+                  <div className={`eco-stage-icon ${isRed ? "eco-stage-icon--red" : "eco-stage-icon--green"}`}>
+                    {stage.icon}
+                  </div>
+
+                  {/* Title */}
+                  <div className={`eco-stage-title ${isRed ? "eco-stage-title--red" : "eco-stage-title--green"}`}>
+                    {stage.title}
+                  </div>
+
+                  {/* Image */}
+                  <img src={stage.image} alt={stage.title} className="eco-stage-img" />
+
+                  {/* Description */}
+                  <p className="eco-stage-desc">{stage.desc}</p>
+                </div>
+
+                {/* Arrow connector */}
+                {index < stages.length - 1 && (
+                  <div className="eco-stage-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }

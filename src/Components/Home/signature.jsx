@@ -1,456 +1,589 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+
+const features = [
+    {
+        num: "01",
+        title: "HANDPICKED SPECIES",
+        tag: "RARE",
+        desc: "Each specimen is selected by leading botanists for exceptional aesthetic character, variegated leaf patterns, and architectural form.",
+        meta: {
+            origin: "Global Tropicals",
+            growth: "Slow to Medium",
+            rarity: "Collector Gold"
+        }
+    },
+    {
+        num: "02",
+        title: "PREMIUM CULTIVATION",
+        tag: "PURE",
+        desc: "Grown in our state-of-the-art tissue culture laboratories, ensuring pathogen-free plants with optimized genetic health.",
+        meta: {
+            tech: "In-Vitro Culture",
+            medium: "Sterile Agar",
+            health: "Pathogen-Free"
+        }
+    },
+    {
+        num: "03",
+        title: "BUILT TO THRIVE",
+        tag: "GROW",
+        desc: "Acclimatized under precise environment controls to adapt instantly to urban spaces, requiring minimal care and maintaining longevity.",
+        meta: {
+            acclim: "Multi-Stage",
+            resil: "High Adaptive",
+            care: "Low Maintenance"
+        }
+    }
+];
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i = 0) => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
+    }),
+};
 
 export default function Signature() {
     const sectionRef = useRef(null);
     const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+    const [activeFeature, setActiveFeature] = useState(0);
 
     return (
-        <section className="signature" ref={sectionRef}>
+        <section className="signature" id="signature" ref={sectionRef}>
             <style>{`
                 .signature {
-                    background: #F7F5F0;
-                    padding: 4rem 0;
-                    font-family: 'Inter', sans-serif;
-                    overflow: hidden;
-                }
-                
-                /* Main centered wrapper */
-                .sig-container {
-                    max-width: 1350px;
-                    margin: 0 auto;
-                    padding: 0 1rem;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                /* Card: Subtle rounded left, massive rounded right */
-                .sig-card {
-                    width: 100%;
-                    height: 580px;
-                    border-radius: 20px 350px 350px 20px;
                     position: relative;
-                    display: flex;
+                    width: 100%;
+                    background: #F7F7F8;
+                    font-family: 'Inter', sans-serif;
+                    padding: 1rem 7rem 2rem 7rem;
                     overflow: hidden;
-                    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-                    background: #F7F5F0;
                 }
                 
-                /* Plant image fills the card as the base layer */
-                .sig-plant-bg {
-                    position: absolute;
-                    inset: 0;
-                    background: url('/exotic-plant.png') center/cover no-repeat;
-                    z-index: 0;
-                }
-                
-                /* Dark green overlay on the left with a single straight diagonal cut */
-                .sig-dark-overlay {
-                    position: absolute;
-                    inset: 0;
-                    background: #09120D;
-                    /* Straight cut: from 36% at top to 55% at bottom */
-                    clip-path: polygon(0 0, 36% 0, 55% 100%, 0 100%);
-                    z-index: 1;
-                }
-                
-                /* Golden line perfectly tracking the diagonal cut */
-                .sig-line {
-                    position: absolute;
-                    inset: 0;
-                    width: 100%; height: 100%;
+                .sig-container {
+                    max-width: 1100px;
+                    margin: 0 auto;
+                    padding: 0;
+                    position: relative;
                     z-index: 2;
-                    pointer-events: none;
-                }
-                
-                /* Content area bounded to the left */
-                .sig-content {
-                    position: absolute;
-                    top: 0; left: 0; bottom: 0;
-                    width: 45%;
-                    padding: 4rem 2rem 4rem 4rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    z-index: 10;
-                }
-                
-                /* Subtle leaf watermarks on dark background */
-                .sig-leaf-bg {
-                    position: absolute;
-                    bottom: -30px;
-                    left: -20px;
-                    width: 380px;
-                    opacity: 0.04;
-                    pointer-events: none;
                 }
 
-                .sig-eyebrow {
-                    display: flex;
+                .sig-grid {
+                    display: grid;
+                    grid-template-columns: 1.1fr 0.9fr;
+                    gap: 3rem;
                     align-items: center;
-                    gap: 0.8rem;
-                    color: #C5A87B;
-                    font-size: 0.75rem;
-                    font-weight: 500;
-                    letter-spacing: 0.15em;
-                    margin-bottom: 1.5rem;
                 }
-                
+
+                /* Eyebrow and heading styled like other sections */
+                .sig-eyebrow {
+                    font-size: .85rem;
+                    font-weight: 600;
+                    letter-spacing: .14em;
+                    text-transform: uppercase;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: .6rem;
+                    margin-bottom: 1.2rem;
+                    color: #00A651;
+                    padding: .5rem 1.4rem;
+                    border: 1px solid rgba(0, 166, 81, .3);
+                    border-radius: 50px;
+                    background: rgba(0, 166, 81, .06);
+                }
+
                 .sig-heading {
                     font-family: 'Playfair Display', serif;
-                    font-size: clamp(3rem, 4.5vw, 5rem);
-                    line-height: 1.05;
-                    color: #FFFFFF;
-                    margin-bottom: 1.8rem;
-                    font-weight: 400;
-                    position: relative;
+                    font-size: clamp(2.4rem, 3.5vw, 3.6rem);
+                    font-weight: 600;
+                    line-height: 1.1;
+                    color: #111827;
+                    letter-spacing: -.01em;
+                    margin: 0 0 1rem;
                 }
+
                 .sig-heading .green {
-                    color: #82A069;
+                    color: #00A651;
                 }
                 
-                /* Decorative leaf flourish next to 'Starts Here' */
-                .sig-decor-branch {
-                    position: absolute;
-                    width: 40px; height: 40px;
-                    bottom: 5px;
-                    margin-left: 15px;
-                    opacity: 0.9;
+                .sig-heading .leaf-inline {
+                    display: inline-block;
+                    width: 0.55em;
+                    height: 0.55em;
+                    vertical-align: middle;
+                    margin-left: 0.18em;
+                    transform: rotate(15deg) translateY(-0.06em);
                 }
 
                 .sig-divider {
-                    width: 35px;
-                    height: 1px;
-                    background: #C5A87B;
+                    width: 68px; height: 3px;
+                    background: linear-gradient(90deg, #F51521, #00A651);
+                    margin-bottom: 1.8rem;
+                    border-radius: 2px;
+                }
+
+                .sig-lead-wrapper {
+                    position: relative;
                     margin-bottom: 2rem;
                 }
-                
-                .sig-desc {
-                    color: #A3AFA8;
+
+                .sig-lead {
                     font-size: 0.95rem;
                     line-height: 1.7;
-                    max-width: 360px;
-                    margin-bottom: 3rem;
+                    color: #4b5563;
+                    max-width: 540px;
                 }
-                
-                .sig-btn {
+
+                /* Floating stats */
+                .sig-stats {
+                    display: flex;
+                    gap: 3rem;
+                    margin-bottom: 2.5rem;
+                }
+
+                .sig-stat-card {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .sig-stat-val {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    color: #00A651;
+                    line-height: 1.1;
+                }
+
+                .sig-stat-val span {
+                    color: #F51521;
+                }
+
+                .sig-stat-lbl {
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                    color: #6b7280;
+                    margin-top: 0.3rem;
+                    text-transform: uppercase;
+                }
+
+                /* Explore Button */
+                .sig-btn-wrapper {
+                    display: inline-block;
+                }
+
+                .sig-btn-new {
                     display: inline-flex;
                     align-items: center;
                     gap: 1.2rem;
-                    padding: 0.9rem 2.2rem;
-                    border: 1px solid #C5A87B;
-                    border-radius: 50px;
-                    color: #C5A87B;
                     background: transparent;
-                    font-size: 0.75rem;
-                    font-weight: 500;
-                    letter-spacing: 0.12em;
+                    border: none;
+                    padding: 0;
                     cursor: pointer;
-                    transition: all 0.3s ease;
-                    align-self: flex-start;
-                }
-                .sig-btn:hover {
-                    background: #C5A87B;
-                    color: #09120D;
-                }
-                .sig-btn svg {
-                    transition: transform 0.3s;
-                }
-                .sig-btn:hover svg {
-                    transform: translateX(6px);
-                }
-                
-                /* Circular Badge exactly centered on the slanted line at 60% height */
-                /* line goes 36 to 55. at y=60%, x = 36 + (55-36)*0.6 = 47.4% */
-                .sig-badge {
-                    position: absolute;
-                    top: 60%;
-                    left: 47.4%;
-                    transform: translate(-50%, -50%);
-                    width: 140px;
-                    height: 140px;
-                    border-radius: 50%;
-                    border: 1px solid #C5A87B;
-                    background: #09120D;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 15;
-                    text-align: center;
-                }
-                .sig-badge span {
-                    color: #FFFFFF;
-                    font-size: 0.55rem;
-                    letter-spacing: 0.2em;
-                    line-height: 1.8;
-                    margin-top: 0.3rem;
-                }
-                .sig-badge-line {
-                    width: 20px;
-                    height: 1px;
-                    background: #C5A87B;
-                    margin-top: 0.8rem;
-                }
-
-                /* Features section placed BELOW card, shifted to the RIGHT half */
-                .sig-features-wrapper {
-                    width: 100%;
-                    margin-top: 3.5rem;
-                    display: flex;
-                    justify-content: flex-end; /* Pushes features to the right */
-                    padding-right: 4%;
-                }
-                
-                .sig-features-container {
-                    display: flex;
-                    align-items: stretch;
-                    gap: 3rem;
-                }
-
-                .sig-features-decor {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 0.8rem;
-                    padding-right: 1.5rem;
-                }
-                .sig-feat-vert-line {
-                    width: 1px;
-                    flex-grow: 1;
-                    min-height: 30px;
-                    background: #C5A87B;
-                    opacity: 0.5;
-                }
-
-                .sig-feature-divider {
-                    width: 1px;
-                    background: #DCD6C8;
-                    margin: 0.5rem 0;
-                }
-
-                .sig-feature-item {
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 1.2rem;
-                    max-width: 260px;
-                }
-                .sig-feature-icon {
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 50%;
-                    background: #EBE7DD;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-shrink: 0;
-                    color: #3C4A40;
-                }
-                .sig-feature-text h4 {
+                    font-family: 'Inter', sans-serif;
                     font-size: 0.8rem;
-                    font-weight: 700;
-                    color: #1A201A;
-                    margin-bottom: 0.4rem;
-                    letter-spacing: 0.05em;
+                    font-weight: 600;
+                    letter-spacing: 0.15em;
+                    color: #111827;
+                    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    outline: none;
                 }
-                .sig-feature-text p {
+
+                .btn-arrow-circle {
+                    position: relative;
+                    width: 52px;
+                    height: 52px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+
+                .circle-svg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform: rotate(-90deg);
+                }
+
+                .circle-svg circle {
+                    stroke-dasharray: 283;
+                    stroke-dashoffset: 283;
+                    transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s;
+                }
+
+                .arrow-svg {
+                    width: 18px;
+                    height: 18px;
+                    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+
+                .sig-btn-new:hover {
+                    color: #00A651;
+                }
+
+                .sig-btn-new:hover .btn-arrow-circle {
+                    transform: scale(1.05);
+                }
+
+                .sig-btn-new:hover .circle-svg circle {
+                    stroke-dashoffset: 0;
+                }
+
+                .sig-btn-new:hover .arrow-svg {
+                    transform: translateX(4px);
+                }
+
+                /* Interactive list styling */
+                .sig-list {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .sig-list-item {
+                    position: relative;
+                    padding: 1.8rem 0 1.8rem 1.8rem;
+                    border-bottom: 1px solid #E5E1D5;
+                    cursor: pointer;
+                    transition: border-color 0.4s, background-color 0.4s;
+                }
+
+                .sig-list-item:hover {
+                    border-color: #00A651;
+                }
+
+                /* Vertical active indicator */
+                .sig-list-indicator {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 2px;
+                    background: #E5E1D5;
+                }
+
+                .sig-list-indicator-fill {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 0;
+                    background: #00A651;
+                    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+
+                .sig-list-item.active .sig-list-indicator-fill {
+                    height: 100%;
+                }
+
+                .sig-list-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.8rem;
+                }
+
+                .sig-list-num {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 1.35rem;
+                    font-weight: 500;
+                    color: #00A651;
+                    opacity: 0.6;
+                    transition: opacity 0.4s, transform 0.4s;
+                }
+
+                .sig-list-item.active .sig-list-num {
+                    opacity: 1;
+                    transform: scale(1.15);
+                }
+
+                .sig-list-title {
+                    font-size: 0.95rem;
+                    font-weight: 700;
+                    letter-spacing: 0.1em;
+                    color: #4b5563;
+                    transition: color 0.4s, transform 0.4s;
+                }
+
+                .sig-list-item.active .sig-list-title {
+                    color: #111827;
+                    transform: translateX(8px);
+                }
+
+                .sig-list-desc {
+                    overflow: hidden;
+                    color: #4b5563;
+                    font-size: 0.88rem;
+                    line-height: 1.7;
+                    padding-left: 3.2rem;
+                    max-width: 440px;
+                }
+
+                .sig-meta-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1.2rem;
+                    margin-top: 1.2rem;
+                    padding-top: 1.2rem;
+                    border-top: 1px dashed #E5E1D5;
+                }
+
+                .sig-meta-item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.2rem;
+                }
+
+                .sig-meta-label {
+                    font-size: 0.62rem;
+                    font-weight: 700;
+                    letter-spacing: 0.08em;
+                    color: #8C9990;
+                    text-transform: uppercase;
+                }
+
+                .sig-meta-value {
                     font-size: 0.75rem;
-                    color: #6D7A71;
-                    line-height: 1.6;
+                    font-weight: 600;
+                    color: #111827;
+                }
+
+                /* Background Watermark and leaf SVG */
+                .sig-watermark {
+                    position: absolute;
+                    bottom: 2%;
+                    right: 4%;
+                    font-family: 'Playfair Display', serif;
+                    font-size: clamp(8rem, 14vw, 15rem);
+                    font-weight: 700;
+                    color: #EAEAEB;
+                }
+
+                /* Responsive queries */
+                @media (max-width: 1200px) {
+                    .signature {
+                        padding: 1rem 4rem 2rem 4rem;
+                    }
+                    .sig-grid {
+                        gap: 2rem;
+                    }
                 }
 
                 @media (max-width: 1024px) {
-                    .sig-card { border-radius: 20px 200px 200px 20px; }
-                    .sig-content { padding-left: 2rem; width: 55%; }
-                    .sig-dark-overlay { clip-path: polygon(0 0, 45% 0, 65% 100%, 0 100%); }
-                    .sig-line line { x1: 45; x2: 65; }
-                    .sig-badge { left: 57%; }
-                    .sig-features-wrapper { justify-content: center; padding-right: 0; }
-                    .sig-feature-item { max-width: 220px; }
+                    .sig-grid {
+                        gap: 3rem;
+                        grid-template-columns: 1fr;
+                    }
+                    .sig-lead-wrapper {
+                        margin-bottom: 1.8rem;
+                        max-width: 100%;
+                    }
+                    .sig-lead {
+                        max-width: 100%;
+                    }
+                    .sig-stats {
+                        margin-bottom: 2rem;
+                    }
+                }
+
+                @media (max-width: 900px) {
+                    .signature {
+                        padding: 1rem 3rem 2rem 3rem;
+                    }
                 }
 
                 @media (max-width: 768px) {
-                    .signature { padding: 3rem 0; }
-                    .sig-card { border-radius: 20px; height: auto; min-height: 600px; }
-                    .sig-dark-overlay { clip-path: none; opacity: 0.85; }
-                    .sig-line { display: none; }
-                    .sig-content { width: 100%; padding: 3rem 2rem; }
-                    .sig-badge { display: none; }
-                    .sig-features-wrapper { justify-content: flex-start; padding: 0 1rem; }
-                    .sig-features-container { flex-direction: column; gap: 2rem; width: 100%; }
-                    .sig-feature-divider { display: none; }
-                    .sig-features-decor { display: none; }
-                    .sig-feature-item { max-width: none; width: 100%; }
+                    .signature {
+                        padding: 1rem 1.5rem 2rem 1.5rem;
+                    }
+                    .sig-heading {
+                        font-size: clamp(2rem, 8vw, 2.6rem);
+                    }
+                    .sig-lead-wrapper {
+                        margin-bottom: 1.5rem;
+                    }
+                    .sig-stats {
+                        gap: 2rem;
+                        margin-bottom: 1.5rem;
+                        flex-wrap: wrap;
+                    }
+                    .sig-stat-val {
+                        font-size: 2rem;
+                    }
+                    .sig-list-item {
+                        padding: 1.5rem 0 1.5rem 1.2rem;
+                    }
+                    .sig-list-desc {
+                        padding-left: 0;
+                        margin-top: 0.8rem;
+                    }
+                    .sig-meta-grid {
+                        grid-template-columns: 1fr;
+                        gap: 1rem;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .signature {
+                        padding: 1rem 1rem 2rem 1rem;
+                    }
+                    .sig-stats {
+                        flex-direction: column;
+                        gap: 1.5rem;
+                    }
+                    .sig-heading {
+                        font-size: clamp(1.8rem, 9vw, 2.2rem);
+                    }
                 }
             `}</style>
 
             <div className="sig-container">
-                <motion.div 
-                    className="sig-card"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                >
-                    {/* The Plant image base */}
-                    <div className="sig-plant-bg" />
-
-                    {/* Dark green overlay with the clean diagonal cut */}
-                    <div className="sig-dark-overlay" />
-
-                    {/* Golden line tracking the exact diagonal cut */}
-                    <svg className="sig-line" preserveAspectRatio="none" viewBox="0 0 100 100">
-                        <line x1="36" y1="0" x2="55" y2="100" stroke="#C5A87B" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
-                    </svg>
-
-                    {/* Circular Badge exactly centered on the slanted line */}
-                    <motion.div 
-                        className="sig-badge"
-                        initial={{ scale: 0, opacity: 0, rotate: -20 }}
-                        animate={inView ? { scale: 1, opacity: 1, rotate: 0 } : { scale: 0, opacity: 0, rotate: -20 }}
-                        transition={{ delay: 0.6, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-                    >
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C5A87B" strokeWidth="1.2">
-                            <path d="M8 16s1-4 4-5c2-1 4-1 4-1s-1 2-2 3c-1 1-3 2-4 3z" />
-                            <path d="M12 22v-6" />
-                            <circle cx="12" cy="12" r="10" />
-                        </svg>
-                        <span>RARE.<br/>EXOTIC.<br/>EXCEPTIONAL.</span>
-                        <div className="sig-badge-line"></div>
-                    </motion.div>
-
-                    {/* Text Content Area */}
-                    <div className="sig-content">
-                        {/* Background leaf watermark */}
-                        <svg className="sig-leaf-bg" viewBox="0 0 100 100" fill="none" stroke="#fff" strokeWidth="0.5">
-                            <path d="M10,90 C10,40 50,10 90,10 C90,60 50,90 10,90 Z M10,90 C30,70 50,50 90,10" />
-                        </svg>
-
-                        <motion.div 
+                <div className="sig-grid">
+                    {/* Left Column: Heading copy & CTA */}
+                    <div>
+                        {/* Eyebrow */}
+                        <motion.div
                             className="sig-eyebrow"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                            transition={{ delay: 0.2, duration: 0.6 }}
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate={inView ? "visible" : "hidden"}
+                            custom={0}
                         >
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M8 16s1-4 4-5c2-1 4-1 4-1s-1 2-2 3c-1 1-3 2-4 3z" />
-                                <path d="M12 22v-6" />
+                            <svg className="sig-eyebrow-leaf" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
                             </svg>
-                            EXOTIC PLANT COLLECTION
+                            <span>SIGNATURE COLLECTION</span>
                         </motion.div>
 
-                        <motion.h2 
+                        <motion.h2
                             className="sig-heading"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                            transition={{ delay: 0.3, duration: 0.6 }}
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate={inView ? "visible" : "hidden"}
+                            custom={1}
                         >
-                            Signature<br/>
-                            Living<br/>
+                            Signature Living<br />
                             <span className="green">Starts Here</span>
-                            {/* Decorative golden flourish */}
-                            <svg className="sig-decor-branch" viewBox="0 0 24 24" fill="none" stroke="#C5A87B" strokeWidth="1">
-                                <path d="M3 21S7 14 12 12c2.5-1 5-1 9-2" />
-                                <path d="M12 12s-1-4 3-6c2.5-1.5 6-1 6-1s-1 3.5-3 5c-1.5 1-4 2-6 2z" />
-                                <path d="M8 16s0-3 2-4c1.5-1 4-1 4-1s-1 2.5-2 3c-1 1-3 2-4 2z" />
+                            <svg className="leaf-inline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
                             </svg>
                         </motion.h2>
 
-                        <motion.div 
+                        <motion.div
                             className="sig-divider"
                             initial={{ scaleX: 0 }}
                             animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                            transition={{ delay: 0.4, duration: 0.6 }}
+                            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                             style={{ transformOrigin: "left" }}
                         />
 
-                        <motion.p 
-                            className="sig-desc"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                            transition={{ delay: 0.5, duration: 0.6 }}
+                        <div className="sig-lead-wrapper">
+                            <motion.p
+                                className="sig-lead"
+                                variants={fadeUp}
+                                initial="hidden"
+                                animate={inView ? "visible" : "hidden"}
+                                custom={2}
+                            >
+                                Elevate your space with our premium, tissue-cultured exotic plant species. Developed inside sterile labs to ensure optimized growth, pathogen immunity, and biophilic luxury.
+                            </motion.p>
+                        </div>
+
+                        {/* Floating Biotech Counters */}
+                        <div className="sig-stats">
+                            <motion.div
+                                className="sig-stat-card"
+                                variants={fadeUp}
+                                initial="hidden"
+                                animate={inView ? "visible" : "hidden"}
+                                custom={3}
+                            >
+                                <span className="sig-stat-val">99.8<span>%</span></span>
+                                <span className="sig-stat-lbl">Lab Survival Rate</span>
+                            </motion.div>
+
+                            <motion.div
+                                className="sig-stat-card"
+                                variants={fadeUp}
+                                initial="hidden"
+                                animate={inView ? "visible" : "hidden"}
+                                custom={4}
+                            >
+                                <span className="sig-stat-val">180<span>+</span></span>
+                                <span className="sig-stat-lbl">Exotic Cultivars</span>
+                            </motion.div>
+                        </div>
+
+                        <motion.div
+                            className="sig-btn-wrapper"
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate={inView ? "visible" : "hidden"}
+                            custom={5}
                         >
-                            Discover a curated collection of rare and exotic plant species. Handpicked for their beauty, uniqueness and timeless appeal.
-                        </motion.p>
-
-                        <motion.button 
-                            className="sig-btn"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                            transition={{ delay: 0.6, duration: 0.6 }}
-                        >
-                            EXPLORE COLLECTION
-                            <svg viewBox="0 0 40 24" width="30" height="18" fill="none" stroke="currentColor" strokeWidth="1">
-                                <path d="M0 12h38M32 6l6 6-6 6" />
-                            </svg>
-                        </motion.button>
+                            <button className="sig-btn-new">
+                                <span className="btn-text">EXPLORE COLLECTION</span>
+                                <span className="btn-arrow-circle">
+                                    <svg viewBox="0 0 100 100" className="circle-svg">
+                                        <circle cx="50" cy="50" r="45" stroke="#00A651" strokeWidth="1.5" fill="transparent" />
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" className="arrow-svg" fill="none" stroke="#00A651" strokeWidth="1.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </motion.div>
                     </div>
-                </motion.div>
 
-                {/* Bottom Features Row - Shifted to the RIGHT to match original layout */}
-                <motion.div 
-                    className="sig-features-wrapper"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                    transition={{ delay: 0.7, duration: 0.6 }}
-                >
-                    <div className="sig-features-container">
-                        <div className="sig-features-decor">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C5A87B" strokeWidth="1.2">
-                                <path d="M8 16s1-4 4-5c2-1 4-1 4-1s-1 2-2 3c-1 1-3 2-4 3z" />
-                                <path d="M12 22v-6" />
-                            </svg>
-                            <div className="sig-feat-vert-line"></div>
-                        </div>
+                    {/* Right Column: Interactive feature accordion list */}
+                    <div className="sig-list">
+                        {features.map((feat, idx) => {
+                            const isActive = activeFeature === idx;
+                            return (
+                                <div
+                                    key={feat.num}
+                                    className={`sig-list-item ${isActive ? "active" : ""}`}
+                                    onMouseEnter={() => setActiveFeature(idx)}
+                                    onClick={() => setActiveFeature(idx)}
+                                >
+                                    {/* Left active line indicator */}
+                                    <div className="sig-list-indicator">
+                                        <div className="sig-list-indicator-fill" />
+                                    </div>
 
-                        <div className="sig-feature-item">
-                            <div className="sig-feature-icon">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    <path d="M9 12l2 2 4-4" />
-                                </svg>
-                            </div>
-                            <div className="sig-feature-text">
-                                <h4>HANDPICKED</h4>
-                                <p>Carefully selected exotic species from around the world.</p>
-                            </div>
-                        </div>
+                                    <div className="sig-list-header">
+                                        <span className="sig-list-num">{feat.num}</span>
+                                        <span className="sig-list-title">{feat.title}</span>
+                                    </div>
+                                    <motion.div
+                                        className="sig-list-desc"
+                                        initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                                        animate={isActive ? { height: "auto", opacity: 1, marginTop: 16 } : { height: 0, opacity: 0, marginTop: 0 }}
+                                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        <p>{feat.desc}</p>
 
-                        <div className="sig-feature-divider"></div>
-
-                        <div className="sig-feature-item">
-                            <div className="sig-feature-icon">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                    <path d="M12 22v-9" />
-                                    <path d="M8 22h8" />
-                                    <path d="M12 13C12 13 7 9 7 5C7 3 9 2 12 2C15 2 17 3 17 5C17 9 12 13 12 13Z" />
-                                </svg>
-                            </div>
-                            <div className="sig-feature-text">
-                                <h4>PREMIUM QUALITY</h4>
-                                <p>Grown with precision and care to ensure exceptional quality.</p>
-                            </div>
-                        </div>
-
-                        <div className="sig-feature-divider"></div>
-
-                        <div className="sig-feature-item">
-                            <div className="sig-feature-icon">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    <path d="M9 12l2 2 4-4" />
-                                    <path d="M12 22V12" />
-                                </svg>
-                            </div>
-                            <div className="sig-feature-text">
-                                <h4>BUILT TO THRIVE</h4>
-                                <p>Adapted and nurtured for best survivability in any space.</p>
-                            </div>
-                        </div>
+                                        {/* Catalog Metadata details */}
+                                        <div className="sig-meta-grid">
+                                            {Object.entries(feat.meta).map(([key, val]) => (
+                                                <div key={key} className="sig-meta-item">
+                                                    <span className="sig-meta-label">{key}</span>
+                                                    <span className="sig-meta-value">{val}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            );
+                        })}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

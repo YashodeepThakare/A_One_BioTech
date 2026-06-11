@@ -98,11 +98,11 @@ export default function BioTechLab() {
 
   const statCardVariants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
@@ -118,7 +118,7 @@ export default function BioTechLab() {
   };
 
   return (
-    <section className="biolab-section" ref={sectionRef}>
+    <section id="biotechlab" className="biolab-section" ref={sectionRef}>
       {/* Top Split Content */}
       <div className="biolab-top">
 
@@ -142,9 +142,9 @@ export default function BioTechLab() {
             <div style={{ overflow: "hidden", paddingBottom: "5px" }}>
               <motion.div variants={textLineVariants} className="biolab-title-line1">
                 Where Precision Meets <span style={{ color: "#00a651" }}>Plant <span style={{ whiteSpace: "nowrap" }}>Science
-                <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
-                </svg></span></span>
+                  <svg className="leaf-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 22C2 22 4 10 14 6C14 6 18 4 22 2C22 2 20 12 16 16C16 16 14 20 2 22Z" fill="#00A651" opacity=".9" />
+                  </svg></span></span>
               </motion.div>
             </div>
           </h2>
@@ -167,11 +167,11 @@ export default function BioTechLab() {
             {/* Row 1: 3 Hexagons */}
             <div className="hex-row">
               {images.slice(0, 3).map((src, i) => (
-                <motion.div 
-                  key={src} 
-                  className="hex" 
-                  initial={{ opacity: 0, scale: 0 }} 
-                  animate={inView ? { opacity: 1, scale: 1 } : {}} 
+                <motion.div
+                  key={src}
+                  className="hex"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.1 * i, type: 'spring' }}
                 >
                   <div className="hex-inner">
@@ -184,11 +184,11 @@ export default function BioTechLab() {
             {/* Row 2: 2 Hexagons */}
             <div className="hex-row">
               {images.slice(3, 5).map((src, i) => (
-                <motion.div 
-                  key={src} 
-                  className="hex" 
-                  initial={{ opacity: 0, scale: 0 }} 
-                  animate={inView ? { opacity: 1, scale: 1 } : {}} 
+                <motion.div
+                  key={src}
+                  className="hex"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.3 + 0.1 * i, type: 'spring' }}
                 >
                   <div className="hex-inner">
@@ -201,11 +201,11 @@ export default function BioTechLab() {
             {/* Row 3: 3 Hexagons */}
             <div className="hex-row">
               {images.slice(5, 8).map((src, i) => (
-                <motion.div 
-                  key={src} 
-                  className="hex" 
-                  initial={{ opacity: 0, scale: 0 }} 
-                  animate={inView ? { opacity: 1, scale: 1 } : {}} 
+                <motion.div
+                  key={src}
+                  className="hex"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.5 + 0.1 * i, type: 'spring' }}
                 >
                   <div className="hex-inner">
@@ -231,12 +231,12 @@ export default function BioTechLab() {
           <motion.div className="biolab-stat-card" variants={statCardVariants}>
             <div className="stat-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00a651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 18h8"/>
-                <path d="M3 22h18"/>
-                <path d="M14 22a7 7 0 1 0 0-14h-1"/>
-                <path d="M9 14h2"/>
-                <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/>
-                <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+                <path d="M6 18h8" />
+                <path d="M3 22h18" />
+                <path d="M14 22a7 7 0 1 0 0-14h-1" />
+                <path d="M9 14h2" />
+                <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
+                <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
               </svg>
             </div>
             <div className="stat-text">
@@ -249,10 +249,10 @@ export default function BioTechLab() {
           <motion.div className="biolab-stat-card" variants={statCardVariants}>
             <div className="stat-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00a651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 20h10"/>
-                <path d="M10 20c5.5-2.5.8-6.4 3-10"/>
-                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
-                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+                <path d="M7 20h10" />
+                <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
+                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
               </svg>
             </div>
             <div className="stat-text">
@@ -265,8 +265,8 @@ export default function BioTechLab() {
           <motion.div className="biolab-stat-card" variants={statCardVariants}>
             <div className="stat-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00a651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="m9 12 2 2 4-4"/>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
               </svg>
             </div>
             <div className="stat-text">
